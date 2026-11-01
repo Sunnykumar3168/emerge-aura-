@@ -129,7 +129,7 @@ export default function EventCountdown() {
             transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
             className="font-sans font-normal text-[#26352D] text-base sm:text-lg md:text-[18px] leading-relaxed max-w-[700px] text-balance opacity-90"
           >
-            India&apos;s first Conscious Capital Conclave is almost here. Be part of
+            Bharat&apos;s first Conscious Capital Conclave is almost here. Be part of
             it — don&apos;t miss your chance.
           </motion.p>
 

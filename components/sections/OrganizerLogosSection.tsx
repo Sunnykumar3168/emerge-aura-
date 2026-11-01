@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 const sponsorSections = [
   {
     id: "prize-money-sponsor",
-    label: "INNOVATION CHALLENGE PRIZE SPONSOR",
+    label: "INNOVATION CHALLENGE PRIZE Enabler",
     logos: [
       {
         src: "/sponsers/prizemoneysponser/iinvsys.jpeg",
@@ -143,7 +143,7 @@ export default function OrganizerLogosSection() {
   return (
     <section
       id="organizer-logos"
-      aria-label="Partners and Sponsors"
+      aria-label="Partners and Enablers"
       className="relative w-full bg-[#F7F2E8] text-[#17352B] py-20 sm:py-28 overflow-hidden"
     >
       {/* Decorative background */}
@@ -174,7 +174,7 @@ export default function OrganizerLogosSection() {
 
           {/* Title */}
           <h2 className="font-editorial text-[42px] sm:text-[56px] lg:text-[68px] font-semibold text-[#073B2A] tracking-tight leading-none mb-4">
-            Partners & Sponsors
+            Partners & Enablers
           </h2>
 
           {/* Subtitle */}

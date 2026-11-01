@@ -30,22 +30,22 @@ export const venuesData: VenueItem[] = [
       "Irumbai, Tamil Nadu - 605101",
     ],
     plusCode: "2R43+MZX",
-    country: "India",
+    country: "Bharat",
     image: "/images/venue/bharat-nivas.jpg",
     imageAlt: "Bharat Nivas Pavilion and Amphitheatre in Auroville, Tamil Nadu",
     description:
-      "The Pavilion of India at Auroville, hosting the Conclave deal lounge, startup showcases, masterclasses, and conscious capital summits amidst lush tropical reforestation.",
+      "The Pavilion of Bharat at Auroville, hosting the Conclave deal lounge, startup showcases, masterclasses, and conscious capital summits amidst lush tropical reforestation.",
     highlights: [
-      "Pavilion of India, Auroville International Township",
+      "Pavilion of Bharat, Auroville International Township",
       "Open-air amphitheatre & modern auditorium halls",
       "Eco-conscious campus powered by solar energy",
     ],
     mapEmbedUrl:
-      "https://maps.google.com/maps?q=Bharat+Nivas,+Auroville,+Tamil+Nadu+605101&t=&z=15&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=India+Nivas,+Auroville,+Tamil+Nadu+605101&t=&z=15&ie=UTF8&iwloc=&output=embed",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Bharat+Nivas+Auroville+Tamil+Nadu+605101",
+      "https://www.google.com/maps/search/?api=1&query=India+Nivas+Auroville+Tamil+Nadu+605101",
     directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Bharat+Nivas+Auroville+Tamil+Nadu+605101",
+      "https://www.google.com/maps/dir/?api=1&destination=India+Nivas+Auroville+Tamil+Nadu+605101",
   },
   {
     id: "pondicherry-university",
@@ -59,7 +59,7 @@ export const venuesData: VenueItem[] = [
       "Puducherry - 605014",
     ],
     plusCode: "4V4Q+59 Kalapet",
-    country: "India",
+    country: "Bharat",
     image: "/images/venue/pondicherry-university.jpg",
     imageAlt: "Pondicherry University 1000-acre lush green campus at Kalapet",
     description:

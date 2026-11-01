@@ -253,14 +253,6 @@ export default function SpeakersSection() {
                       className="object-contain object-bottom drop-shadow-md group-hover:scale-106 transition-transform duration-500 ease-out"
                     />
                   </div>
-
-                  {/* Top Badge: Speaker Tag */}
-                  <div className="absolute top-3.5 right-3.5 z-10 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm border border-[#C9A15B]/30 shadow-xs">
-                    <Sparkles className="w-2.5 h-2.5 text-[#C9A15B]" />
-                    <span className="font-sans text-[10px] font-bold tracking-wider text-[#8C6D34] uppercase">
-                      Speaker
-                    </span>
-                  </div>
                 </div>
 
                 {/* Bottom Speaker Details */}
@@ -289,13 +281,6 @@ export default function SpeakersSection() {
             );
           })}
         </motion.div>
-      </div>
-
-      {/* Bottom Hint */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-6 flex items-center justify-between text-xs font-sans text-[#5A6D61]">
-        <div className="hidden sm:block text-[#8C6D34] font-medium">
-          13 Distinguished Speakers & Visionaries
-        </div>
       </div>
     </section>
   );

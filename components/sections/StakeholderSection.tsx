@@ -143,7 +143,7 @@ export default function StakeholderSection() {
 
           {/* Supporting Text */}
           <p className="font-sans text-[14px] sm:text-[15.5px] md:text-[16.5px] text-[#2C3E35] font-normal leading-relaxed max-w-[760px] text-balance mt-6 opacity-95">
-            For the first time in India, EMERGE AURO brings together the people who will explore
+            For the first time in Bharat, EMERGE AURO brings together the people who will explore
             Conscious Capitalism — businesses that create  value not only for themselves, but for people,
             planet and the future.
           </p>

@@ -194,9 +194,12 @@ export default function AgendaCard({ day }: AgendaCardProps) {
         <h3 className={`font-editorial text-[38px] sm:text-[44px] lg:text-[46px] font-medium tracking-tight ${theme.titleColor} leading-none mb-1.5`}>
           {day.title}
         </h3>
-        <div className={`flex items-center gap-1.5 text-xs ${theme.locationColor} font-sans font-medium`}>
-          <MapPin className={`w-3.5 h-3.5 ${theme.mapPinColor} shrink-0`} />
-          <span>{day.location}</span>
+        
+        <div className={`flex items-center justify-between gap-1.5 text-xs ${theme.locationColor} font-sans font-medium`}>
+          <span className="flex flex-row gap-1"><MapPin className={`w-3.5 h-3.5 ${theme.mapPinColor} shrink-0`} />
+          {day.location}</span>
+          <span className="flex flex-row gap-1"><Calendar className={`w-3.5 h-3.5 shrink-0`} />
+          {day.date}</span>
         </div>
       </div>
 

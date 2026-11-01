@@ -20,10 +20,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emergeauro.emergestartupfest.com"),
-  title: "EMERGE AURO — India's First Conscious Capital Conclave",
+  metadataBase: new URL("https://emergestartupfest.com"),
+  title: "EMERGE AURO — Bharat's First Conscious Capital Conclave",
   description:
-    "India's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us at Pondicherry University and Bharat Nivas, Auroville for sustainable value creation.",
+    "Bharat's First Conscious Capital Conclave in Auroville and Pondicherry University. We bring together impact investing, conscious business, and startup ecosystems. Join us at Pondicherry University and Bharat Nivas, Auroville for sustainable value creation.",
   keywords: [
     "Emerge Auro",
     "Conscious Capital Conclave",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Sustainable Summit",
     "Venture Capital",
     "Founders",
-    "India startups",
+    "Bharat startups",
   ],
   authors: [{ name: "EMERGE AURO / Section Infin-8 Foundation" }],
   creator: "EMERGE AURO / Section Infin-8 Foundation",
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "EMERGE AURO — India's First Conscious Capital Conclave",
+    title: "EMERGE AURO — Bharat's First Conscious Capital Conclave",
     description:
-      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
+      "Join Bharat's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
     images: [
       {
         url: "/images/hero/emerge-hero-01.webp",
         width: 1200,
         height: 630,
-        alt: "EMERGE AURO - India's First Conscious Capital Conclave",
+        alt: "EMERGE AURO - Bharat's First Conscious Capital Conclave",
       },
     ],
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EMERGE AURO — Conscious Capital Conclave",
     description:
-      "Join India's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
+      "Join Bharat's First Conscious Capital Conclave. Businesses that create value for people, planet, and the future.",
     images: ["/images/hero/emerge-hero-01.webp"],
   },
   robots: {

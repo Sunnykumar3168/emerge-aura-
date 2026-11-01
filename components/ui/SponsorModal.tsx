@@ -61,7 +61,7 @@ export default function SponsorModal({ isOpen, onClose }: SponsorModalProps) {
 
             {/* Form Content */}
             <div className="p-6 sm:p-8 lg:p-10 font-sans text-gray-800">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Submit Sponsorship Request</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">Submit Enablership Request</h2>
 
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
                 {/* Row 1 */}

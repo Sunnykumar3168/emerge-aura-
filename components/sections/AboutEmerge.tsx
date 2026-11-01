@@ -10,7 +10,7 @@ export default function AboutEmerge() {
   return (
     <section
       id="about"
-      aria-label="About Emerge Auro — India's First Conscious Capital Conclave"
+      aria-label="About Emerge Auro — Bharat's First Conscious Capital Conclave"
       className="relative w-full bg-[#F4F0E6] text-[#10251D] overflow-hidden flex items-center justify-center select-none py-16 lg:py-6 border-t border-[#E8E2D4]"
     >
       {/* ========================================================
@@ -86,18 +86,11 @@ export default function AboutEmerge() {
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-20 w-full lg:w-[52%] xl:w-[50%] 2xl:w-[46%] flex flex-col items-center lg:items-start text-center lg:text-left"
         >
-          {/* Eyebrow: ── ABOUT ── */}
-          <div className="flex items-center gap-3 mb-2.5 self-center lg:self-start">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/70" />
-            <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-[0.28em] text-[#8C733E] uppercase">
-              {aboutData.eyebrow}
-            </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/70" />
-          </div>
+        
 
           {/* Heading: About EMERGE AURO (Exact title-case typography matching Image 2) */}
           <h2 className="font-editorial text-[42px] sm:text-[54px] lg:text-[60px] xl:text-[68px] 2xl:text-[74px] font-normal leading-[1.0] text-[#10251D] tracking-tight mb-3 sm:mb-3.5 self-center lg:self-start">
-            About <span className="font-normal">EMERGE AURO</span>
+              Business Beyond Business
           </h2>
 
           {/* Subtle Centered Gold Divider with Dot below Heading (Image 2 detail) */}

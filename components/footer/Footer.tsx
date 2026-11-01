@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
 
             <p className="font-sans text-[14.5px] text-[#073B2A]/80 leading-relaxed max-w-[420px] mb-6">
-              India&apos;s First Conscious Capital Conclave uniting visionary
+              Bharat&apos;s First Conscious Capital Conclave uniting visionary
               leaders, institutions, entrepreneurs, and thinkers to foster
               sustainable growth, ethical innovation, and social impact.
             </p>
@@ -124,7 +124,7 @@ export default function Footer() {
                   href="/sponsors"
                   className="text-[#073B2A]/75 hover:text-[#C89B3C] transition-colors duration-200"
                 >
-                  Sponsors & Partners
+                  Enablers & Partners
                 </Link>
               </li>
               <li>

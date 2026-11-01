@@ -16,8 +16,8 @@ export default function FloatingBrochureButton() {
   return (
     <div className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-[100] animate-in slide-in-from-bottom-10 fade-in duration-700">
       <a
-        href="/Emerge Aura Brochure.pdf"
-        download="Emerge Aura Brochure.pdf"
+        href="/EMERGE AURO BROCHURE.pdf"
+        download="EMERGE AURO BROCHURE.pdf"
         className="group relative flex items-center gap-3 bg-[#063522] hover:bg-[#042416] text-[#F5CB62] p-4 sm:px-6 sm:py-4 rounded-full shadow-[0_12px_30px_rgba(0,0,0,0.3)] border border-[#F5CB62]/30 transition-all duration-300 hover:scale-105 hover:shadow-[0_12px_40px_rgba(245,203,98,0.25)]"
         aria-label="Download Emerge Auro Brochure"
       >

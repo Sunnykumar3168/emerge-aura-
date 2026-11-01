@@ -101,7 +101,7 @@ export default function SponsorsSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 className="font-editorial text-[72px] sm:text-[96px] lg:text-[116px] font-medium leading-[0.9] text-[#063522] tracking-tight mb-8"
               >
-                Our Sponsors
+                Our Enablers
               </motion.h2>
 
               {/* Subtitle */}
@@ -216,7 +216,7 @@ export default function SponsorsSection() {
                   href="/sponsors"
                   className="group relative flex items-center justify-between w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-[#063522] text-[#F5CB62] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase shadow-lg border border-[#063522] hover:bg-[#08452d] hover:border-[#F5CB62]/50 hover:-translate-y-[2px] transition-all duration-400"
                 >
-                  <span>VIEW SPONSORS</span>
+                  <span>VIEW Enablers</span>
                   <ArrowRight className="w-5 h-5 text-[#F5CB62] group-hover:translate-x-1.5 transition-transform duration-400" />
                 </Link>
                 
@@ -224,7 +224,7 @@ export default function SponsorsSection() {
                   onClick={() => setIsModalOpen(true)}
                   className="group relative flex items-center justify-between w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-transparent text-[#063522] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase border border-[#063522] hover:bg-[#063522]/5 hover:-translate-y-[2px] transition-all duration-400"
                 >
-                  <span>BECOME A SPONSOR</span>
+                  <span>BECOME A Enabler</span>
                   <ArrowRight className="w-5 h-5 text-[#063522] group-hover:translate-x-1.5 transition-transform duration-400" />
                 </button>
               </motion.div>

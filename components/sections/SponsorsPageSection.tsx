@@ -41,7 +41,7 @@ export default function SponsorsPageSection() {
     <>
     <section
       id="sponsors"
-      aria-label="Our Sponsors"
+      aria-label="Our Enablers"
       className="relative w-full bg-[#F7F2E8] text-[#17352B] overflow-hidden select-none"
     >
       {/* ========================================================
@@ -84,7 +84,7 @@ export default function SponsorsPageSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="font-editorial text-[44px] sm:text-[72px] lg:text-[96px] font-medium leading-[1.05] text-[#073B2A] tracking-tight mb-6"
           >
-            OUR SPONSORS
+            OUR Enablers
           </motion.h1>
 
           <motion.p
@@ -107,7 +107,7 @@ export default function SponsorsPageSection() {
               onClick={() => setIsModalOpen(true)}
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#D4A94F] text-[#073B2A] font-sans text-[14px] font-semibold tracking-[0.1em] uppercase shadow-[0_4px_16px_rgba(212,169,79,0.3)] hover:bg-[#C89B3C] transition-all duration-300 hover:-translate-y-0.5"
             >
-              <span>BECOME A SPONSOR</span>
+              <span>BECOME A Enabler</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </motion.div>
@@ -149,7 +149,7 @@ export default function SponsorsPageSection() {
                 PARTNERSHIP OPPORTUNITIES
               </span>
               <h2 className="font-editorial text-[36px] sm:text-[56px] font-medium leading-[1.1] text-[#073B2A] mb-6">
-                Sponsor Categories
+                Enabler Categories
               </h2>
               <p className="font-sans text-[16px] sm:text-[18px] text-[#17352B]/80 font-normal leading-relaxed max-w-[600px] mx-auto">
                 Choose a partnership level aligned with your desired visibility, participation and impact at EMERGE AURO.
@@ -177,7 +177,7 @@ export default function SponsorsPageSection() {
                     {/* Compact column width on mobile so it doesn't take 90% */}
                     <th className="sticky left-0 top-0 z-20 w-[35%] sm:w-[30%] bg-[#FBF9F4] p-3 sm:p-8 border-b border-[#B48C3C]/20 align-bottom shadow-[4px_0_16px_rgba(0,0,0,0.03)] sm:shadow-none">
                       <span className="text-[10px] sm:text-[12px] font-bold tracking-[0.1em] uppercase text-[#17352B]">
-                        SPONSOR CATEGORIES
+                        Enabler CATEGORIES
                       </span>
                     </th>
                     {sponsorTiers.map((tier) => (
@@ -307,7 +307,7 @@ export default function SponsorsPageSection() {
               onClick={() => setIsModalOpen(true)}
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#EADBCA] text-[#073B2A] font-sans text-[14px] font-semibold tracking-[0.1em] uppercase shadow-lg hover:bg-[#F7F2E8] transition-all duration-300 hover:-translate-y-0.5"
             >
-              <span>BECOME A SPONSOR</span>
+              <span>BECOME A Enabler</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </motion.div>
