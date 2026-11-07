@@ -59,9 +59,9 @@ export default function AgendaTimeline() {
               <p className="font-sans text-[13px] text-[#E5DED2]/85 font-normal mb-1">
                 {day.date}, {day.location}.
               </p>
-              <p className="font-sans text-[12.5px] text-[#C9A15B] font-medium leading-snug">
+              {/* <p className="font-sans text-[12.5px] text-[#C9A15B] font-medium leading-snug">
                 Theme: {day.theme}
-              </p>
+              </p> */}
             </motion.div>
           ))}
         </div>

@@ -146,13 +146,6 @@ export default function OrganizerLogosSection() {
       aria-label="Partners and Enablers"
       className="relative w-full bg-[#F7F2E8] text-[#17352B] py-20 sm:py-28 overflow-hidden"
     >
-      {/* Decorative background */}
-      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[-8%] right-[-4%] w-[500px] h-[500px] rounded-full border-[0.5px] border-[#C89B3C]/20 opacity-40" />
-        <div className="absolute bottom-[-10%] left-[-6%] w-[600px] h-[600px] rounded-full border-[0.5px] border-[#C89B3C]/15 opacity-30" />
-        <div className="absolute top-[30%] left-[8%] w-1.5 h-1.5 rounded-full bg-[#C89B3C] opacity-35" />
-        <div className="absolute bottom-[25%] right-[12%] w-2 h-2 rounded-full bg-[#D4A94F] opacity-25" />
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
         {/* ── Section Header ── */}
@@ -182,8 +175,6 @@ export default function OrganizerLogosSection() {
             A collective of institutions and communities co-creating EMERGE AURO — from innovation and education to enterprise and social impact.
           </p>
 
-          {/* Divider */}
-          <div className="w-16 h-[1.5px] bg-[#C89B3C]/50 mx-auto mt-6" />
         </motion.div>
 
         {/* ── Tiered Sponsor Sections ── */}

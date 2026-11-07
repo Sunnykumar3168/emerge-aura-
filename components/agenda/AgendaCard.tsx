@@ -161,7 +161,7 @@ export default function AgendaCard({ day }: AgendaCardProps) {
     <article
       tabIndex={0}
       aria-label={`${day.dayLabel} — ${day.title} at ${day.location}`}
-      className={`group relative flex flex-col w-full h-auto min-h-[580px] lg:min-h-[600px] rounded-[22px] bg-[#FAF8F2] border ${theme.cardBorder} shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${theme.cardHoverShadow} transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden select-none`}
+      className={`group relative flex flex-col w-full h-full min-h-[560px] sm:min-h-[600px] rounded-[22px] bg-[#FAF8F2] border ${theme.cardBorder} shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${theme.cardHoverShadow} transition-all duration-500 ease-out hover:-translate-y-2 overflow-hidden select-none`}
     >
       {/* ========================================================
           CARD TOP: IMAGE & DAY PILL
@@ -215,7 +215,7 @@ export default function AgendaCard({ day }: AgendaCardProps) {
           {day.items.slice(0, 4).map((item) => (
             <div
               key={item.id}
-              className="flex items-start gap-3 py-1.5 border-b border-[#10251D]/8 last:border-b-0 group/item"
+              className="flex items-start gap-3 py-1.5 group/item"
             >
               <div className={`w-6 h-6 rounded-full ${theme.iconBg} flex items-center justify-center shrink-0 mt-0.5 ${theme.iconHoverBg} transition-colors`}>
                 <div className={theme.iconColor}>
@@ -291,9 +291,6 @@ export default function AgendaCard({ day }: AgendaCardProps) {
           </div>
         )}
       </div>
-
-      {/* Subtle Bottom Accent Highlight Bar on Hover */}
-      <div className={`absolute bottom-0 left-0 right-0 h-[3px] ${theme.hoverBar} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
     </article>
   );
 }

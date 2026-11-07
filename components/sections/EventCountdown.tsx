@@ -89,15 +89,6 @@ export default function EventCountdown() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl lg:max-w-4xl mx-auto text-center flex flex-col items-center"
         >
-          {/* Subtle Short Gold Accent Line */}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="w-10 sm:w-12 h-[1.5px] bg-[#C59B4E] mb-5 origin-center"
-            aria-hidden="true"
-          />
 
           {/* Eyebrow */}
           <motion.span

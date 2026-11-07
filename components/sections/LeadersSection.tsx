@@ -59,25 +59,6 @@ export default function LeadersSection() {
       aria-label="Leaders behind Emerge Auro"
       className="relative w-full bg-[#032F20] text-[#F5EBD5] pt-[120px] pb-[160px] overflow-hidden select-none"
     >
-      {/* ========================================================
-          BACKGROUND (Plain Deep Forest Green with Subtle Gold Orbits)
-          ======================================================== */}
-      {/* Subtle Orbital Lines (kept per instructions to retain if part of design) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden flex items-center justify-center opacity-[0.25]">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[800px] h-[800px] sm:w-[1200px] sm:h-[1200px] rounded-full border border-[#D4A63A] opacity-20"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[1200px] h-[1200px] sm:w-[1800px] sm:h-[1800px] rounded-full border border-[#D4A63A] opacity-15"
-        />
-        {/* Subtle gold dots */}
-        <div className="absolute top-[20%] left-[30%] w-1.5 h-1.5 rounded-full bg-[#D4A63A] opacity-60" />
-        <div className="absolute bottom-[30%] right-[25%] w-2 h-2 rounded-full bg-[#D4A63A] opacity-50" />
-      </div>
 
       {/* ========================================================
           1. SECTION INTRO
@@ -104,7 +85,7 @@ export default function LeadersSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="font-editorial text-[48px] sm:text-[72px] lg:text-[96px] font-medium leading-[1.0] text-[#F5EBD5] tracking-tight mb-6"
         >
-          Leaders behind <br className="hidden sm:block" />
+          Leaders Behind <br className="hidden sm:block" />
           <span className="text-[#D4A63A]">Emerge Auro</span>
         </motion.h2>
 

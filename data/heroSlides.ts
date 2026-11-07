@@ -49,12 +49,12 @@ export const heroSlides: HeroSlideData[] = [
       "Auroville Township",
     ],
     primaryCta: {
-      label: "REGISTER FOR CONCLAVE",
+      label: "REGISTER NOW",
       href: "https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms",
       isExternal: true,
     },
     secondaryCta: {
-      label: "EXPLORE CONCLAVE",
+      label: "EXPLORE MORE",
       href: "#about",
       isExternal: false,
     },
@@ -77,20 +77,16 @@ export const heroSlides: HeroSlideData[] = [
       },
       {
         icon: "map",
-        text: "Pondicherry & Auroville",
-      },
-      {
-        icon: "sparkles",
         text: "Pondicherry University & Bharat Nivas, Auroville",
       },
     ],
     primaryCta: {
-      label: "REGISTER FOR CONCLAVE",
+      label: "REGISTER NOW",
       href: "https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms",
       isExternal: true,
     },
     secondaryCta: {
-      label: "EXPLORE CONCLAVE",
+      label: "EXPLORE MORE",
       href: "#about",
       isExternal: false,
     },

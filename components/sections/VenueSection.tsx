@@ -39,44 +39,6 @@ export default function VenueSection() {
       aria-label="Conclave Venue & Location"
       className="relative w-full bg-[#F5CB62] text-[#063522] py-20 sm:py-28 lg:py-32 overflow-hidden select-none"
     >
-      {/* Subtle Ambient Background Decorative Accents */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 z-0">
-        <svg
-          className="absolute -top-12 -right-12 w-[600px] h-[600px]"
-          viewBox="0 0 600 600"
-          fill="none"
-        >
-          <circle
-            cx="300"
-            cy="300"
-            r="250"
-            stroke="#063522"
-            strokeWidth="1"
-            strokeDasharray="6 8"
-            opacity="0.15"
-          />
-          <circle
-            cx="300"
-            cy="300"
-            r="190"
-            stroke="#063522"
-            strokeWidth="1"
-            opacity="0.1"
-          />
-        </svg>
-        <svg
-          className="absolute -bottom-16 -left-16 w-[500px] h-[500px]"
-          viewBox="0 0 500 500"
-          fill="none"
-        >
-          <path
-            d="M 50,450 C 150,300 350,350 450,150"
-            stroke="#063522"
-            strokeWidth="1.2"
-            opacity="0.12"
-          />
-        </svg>
-      </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* ========================================================

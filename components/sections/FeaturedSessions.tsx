@@ -13,22 +13,6 @@ export default function FeaturedSessions() {
       className="relative w-full bg-[#032D1D] text-[#F4EFE6] py-20 sm:py-28 lg:py-36 overflow-hidden select-none border-t border-[#09422C]"
     >
 
-      {/* 2. Top-Right Faint Gold Sacred Geometry Orbit */}
-      <div
-        className="absolute -top-20 -right-20 pointer-events-none select-none z-0 opacity-20"
-        aria-hidden="true"
-      >
-        <svg
-          className="w-[420px] h-[420px] sm:w-[540px] sm:h-[540px]"
-          viewBox="0 0 500 500"
-          fill="none"
-        >
-          <circle cx="250" cy="250" r="220" stroke="#C9A15B" strokeWidth="1" strokeOpacity="0.5" />
-          <circle cx="250" cy="250" r="160" stroke="#C9A15B" strokeWidth="0.8" strokeOpacity="0.4" />
-          <circle cx="250" cy="250" r="100" stroke="#C9A15B" strokeWidth="0.8" strokeOpacity="0.45" />
-        </svg>
-      </div>
-
       {/* ========================================================
           MAIN CONTENT CONTAINER
           ======================================================== */}
@@ -163,7 +147,6 @@ export default function FeaturedSessions() {
               className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent text-[#FAF8F2] border border-[#C9A15B] font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-[0_4px_16px_rgba(201,161,91,0.15)] hover:bg-[#C9A15B] hover:text-[#032D1D] transition-all duration-300"
             >
               <span>VIEW AGENDA</span>
-              <ArrowRight className="w-4 h-4 text-[#C9A15B] group-hover:text-[#032D1D] transition-all duration-300 group-hover:translate-x-1.5" />
             </Link>
           </motion.div>
 

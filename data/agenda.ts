@@ -51,11 +51,10 @@ export const conclaveJourneyData = {
           iconName: "Lightbulb",
         },
         {
-          id: "d1-3",
-          tag: "Young innovators",
-          description:
-            "School Science Model Competition: student models from schools in and around Puducherry, judged at the desk",
-          iconName: "GraduationCap",
+          id: "d1-6",
+          tag: "Schedule",
+          description: " Joint inauguration 10:00, pitching 11:00 to 13:00, prizes 16:00 to 17:00",
+          iconName: "Calendar",
         },
         {
           id: "d1-4",
@@ -70,10 +69,11 @@ export const conclaveJourneyData = {
           iconName: "Coins",
         },
         {
-          id: "d1-6",
-          tag: "Schedule",
-          description: " Joint inauguration 10:00, pitching 11:00 to 13:00, prizes 16:00 to 17:00",
-          iconName: "Calendar",
+          id: "d1-9",
+          tag: "Networking",
+          description:
+            "Student-founder interactions",
+          iconName: "Users",
         },
         {
           id: "d1-7",
@@ -88,11 +88,11 @@ export const conclaveJourneyData = {
           iconName: "Sparkles",
         },
         {
-          id: "d1-9",
-          tag: "Networking",
+          id: "d1-3",
+          tag: "Young innovators",
           description:
-            "Student-founder interactions",
-          iconName: "Users",
+            "School Science Model Competition: student models from schools in and around Puducherry, judged at the desk",
+          iconName: "GraduationCap",
         },
       ],
     },
@@ -213,12 +213,6 @@ export const conclaveJourneyData = {
         //   description: "Auroville builders in dialogue with founders under 35",
         //   iconName: "HeartHandshake",
         // },
-        {
-          id: "d3-6",
-          tag: "Stage",
-          description: "Startup pitches batch 2",
-          iconName: "Mic2",
-        },
         // {
         //   id: "d3-7",
         //   tag: "Commitments",
@@ -237,7 +231,13 @@ export const conclaveJourneyData = {
           tag: "Theme",
           description: "Industry, and Puducherry as a destination for tourism and startups",
           iconName: "Mountain",
-        }
+        },
+        {
+          id: "d3-6",
+          tag: "Stage",
+          description: "Startup pitches batch 2",
+          iconName: "Mic2",
+        },
       ],
     },
   ] as DayAgenda[],

@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Handshake, ArrowRight, CheckCircle2, MinusCircle } from "lucide-react";
+import { Handshake, CheckCircle2, MinusCircle } from "lucide-react";
 import { sponsorTiers, sponsorFeatureRows } from "@/data/sponsorship";
 import { useState } from "react";
 import SponsorModal from "@/components/ui/SponsorModal";
+import Link from "next/link";
 
 export default function SponsorsPageSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,17 +45,6 @@ export default function SponsorsPageSection() {
       aria-label="Our Enablers"
       className="relative w-full bg-[#F7F2E8] text-[#17352B] overflow-hidden select-none"
     >
-      {/* ========================================================
-          DECORATIVE BACKGROUND
-          ======================================================== */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full border-[0.5px] border-[#C89B3C]/20 opacity-50" />
-        <div className="absolute top-[-20%] right-[-15%] w-[1000px] h-[1000px] sm:w-[1200px] sm:h-[1200px] rounded-full border-[0.5px] border-[#C89B3C]/15 opacity-40" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] rounded-full border-[0.5px] border-[#C89B3C]/15 opacity-40" />
-        <div className="absolute top-[20%] left-[10%] w-1.5 h-1.5 rounded-full bg-[#C89B3C] opacity-40" />
-        <div className="absolute bottom-[30%] right-[15%] w-2 h-2 rounded-full bg-[#D4A94F] opacity-30" />
-        <div className="absolute top-[60%] left-[5%] w-1 h-1 rounded-full bg-[#C89B3C] opacity-50" />
-      </div>
 
       {/* ========================================================
           HERO SECTION
@@ -103,13 +93,13 @@ export default function SponsorsPageSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <Link
+              href={"https://forms.zohopublic.in/infosectio1/form/SubmitEnablershipRequest/formperma/XWWXqF0bg6LSNKqRTVe21yHESVRpKKIzK120PY5OrVY"}
+              target="__blank"
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#D4A94F] text-[#073B2A] font-sans text-[14px] font-semibold tracking-[0.1em] uppercase shadow-[0_4px_16px_rgba(212,169,79,0.3)] hover:bg-[#C89B3C] transition-all duration-300 hover:-translate-y-0.5"
             >
               <span>BECOME A Enabler</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
+            </Link>
           </motion.div>
         </div>
 
@@ -259,9 +249,6 @@ export default function SponsorsPageSection() {
           CTA FOOTER
           ======================================================== */}
       <div className="relative w-full bg-[#073B2A] overflow-hidden rounded-t-[40px] lg:rounded-t-[80px]">
-        <div className="absolute top-[-50%] left-[-10%] w-[600px] h-[600px] rounded-full border-[1px] border-[#C89B3C]/15 pointer-events-none" />
-        <div className="absolute bottom-[-30%] right-[-5%] w-[500px] h-[500px] rounded-full border-[1px] border-[#C89B3C]/10 pointer-events-none" />
-        
         <div className="relative z-10 max-w-4xl mx-auto px-6 py-24 sm:py-32 text-center flex flex-col items-center">
           <motion.div
             variants={fadeUpVariant(0.1)}
@@ -303,13 +290,13 @@ export default function SponsorsPageSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.8 }}
           >
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <Link
+              href={"https://forms.zohopublic.in/infosectio1/form/SubmitEnablershipRequest/formperma/XWWXqF0bg6LSNKqRTVe21yHESVRpKKIzK120PY5OrVY"}
+              target="__blank"
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#EADBCA] text-[#073B2A] font-sans text-[14px] font-semibold tracking-[0.1em] uppercase shadow-lg hover:bg-[#F7F2E8] transition-all duration-300 hover:-translate-y-0.5"
             >
-              <span>BECOME A Enabler</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
+              <span>Become A Enabler</span>
+            </Link>
           </motion.div>
         </div>
       </div>

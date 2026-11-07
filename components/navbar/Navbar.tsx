@@ -94,7 +94,6 @@ export default function Navbar() {
               }`}
             >
               <span>REGISTER NOW</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             {/* Mobile Hamburger Button */}
@@ -169,7 +168,6 @@ export default function Navbar() {
                 className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase shadow-md transition-all`}
               >
                 <span>REGISTER NOW</span>
-                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </motion.div>

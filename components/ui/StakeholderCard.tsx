@@ -30,13 +30,6 @@ export default function StakeholderCard({ stakeholder, index }: StakeholderCardP
             </span>
             <span className="w-5 sm:w-7 h-[1px] bg-[#C9A15B]/50" />
           </div>
-
-          <div
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#D5CBB5] flex items-center justify-center bg-white/70 text-[#10251D] group-hover:border-[#C9A15B] group-hover:bg-[#C9A15B] group-hover:text-white transition-all duration-300 shadow-sm"
-            aria-hidden="true"
-          >
-            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </div>
         </div>
 
         {/* Middle Content: Title + Description */}

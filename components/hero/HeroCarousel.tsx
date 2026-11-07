@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { heroSlides } from "@/data/heroSlides";
 import { HeroSlide } from "./HeroSlide";
 import HeroControls from "./HeroControls";
-import HeroProgress from "./HeroProgress";
 
 const AUTOPLAY_DURATION = 5000; // 5 seconds
 const SLIDE_COUNT = heroSlides.length;
@@ -13,7 +12,6 @@ const SLIDE_COUNT = heroSlides.length;
 export default function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   // References
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,11 +47,6 @@ export default function HeroCarousel() {
 
       setCurrentIndex(nextIdx);
       currentIndexRef.current = nextIdx;
-
-      // Reset progress to 0 and restart 5-second timer
-      setProgress(0);
-      progressStartTimeRef.current = Date.now();
-      elapsedBeforePauseRef.current = 0;
 
       if (!prevSlide || !nextSlide) {
         isTransitioningRef.current = false;
@@ -159,8 +152,6 @@ export default function HeroCarousel() {
 
         if (currentProgress >= 100) {
           handleNext();
-        } else {
-          setProgress(currentProgress);
         }
       }
       animFrameRef.current = requestAnimationFrame(tick);
@@ -259,17 +250,6 @@ export default function HeroCarousel() {
 
       {/* Hero Navigation Arrows */}
       <HeroControls onPrev={handlePrev} onNext={handleNext} />
-
-      {/* Bottom Right Minimal Slide Indicator & 5s Progress Bar */}
-      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-30 pointer-events-auto">
-        <HeroProgress
-          currentIndex={currentIndex}
-          totalSlides={SLIDE_COUNT}
-          progress={progress}
-          onSelectSlide={handleSelectSlide}
-          isPaused={isPaused}
-        />
-      </div>
     </div>
   );
 }

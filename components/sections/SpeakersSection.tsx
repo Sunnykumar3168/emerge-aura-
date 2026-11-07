@@ -90,51 +90,12 @@ export default function SpeakersSection() {
       aria-label="Our Speakers — Voices of Change"
       className="relative w-full bg-[#F4F0E6] text-[#10251D] py-20 sm:py-28 lg:py-32 overflow-hidden select-none"
     >
-      {/* Ambient Curved Decorative Waves Background */}
-      <div
-        className="absolute top-0 right-0 w-[55%] h-full pointer-events-none z-0 opacity-40 overflow-hidden"
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 700 800"
-          fill="none"
-          className="w-full h-full object-cover"
-        >
-          <path
-            d="M200 0C320 250 240 550 500 800H700V0H200Z"
-            fill="url(#ivory-curve-grad-speakers)"
-            fillOpacity="0.35"
-          />
-          <path
-            d="M380 0C460 300 390 600 650 800"
-            stroke="#C9A15B"
-            strokeWidth="1"
-            strokeOpacity="0.3"
-          />
-          <path
-            d="M480 0C540 280 480 580 720 800"
-            stroke="#C9A15B"
-            strokeWidth="0.8"
-            strokeOpacity="0.2"
-          />
-          <defs>
-            <linearGradient id="ivory-curve-grad-speakers" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#E2D7C3" />
-              <stop offset="100%" stopColor="#C9A15B" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Decorative Aura Rings */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full border border-[#C9A15B]/15 pointer-events-none" />
-      <div className="absolute top-1/2 right-10 w-72 h-72 rounded-full border border-[#C9A15B]/10 pointer-events-none" />
 
       {/* ========================================================
           1. HEADER & INTRO PILLARS
           ======================================================== */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mb-12 sm:mb-16">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#10251D]/10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8">
           {/* Left Title Column */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -171,21 +132,6 @@ export default function SpeakersSection() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6"
           >
-            {/* 3 Pillars */}
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-[#EAE2D2]/70 border border-[#C9A15B]/30 shadow-xs">
-                <Users className="w-3.5 h-3.5 text-[#8C6D34]" />
-                <span className="font-sans text-xs font-semibold text-[#10251D]">Thought Leaders</span>
-              </div>
-              <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-[#EAE2D2]/70 border border-[#C9A15B]/30 shadow-xs">
-                <Lightbulb className="w-3.5 h-3.5 text-[#8C6D34]" />
-                <span className="font-sans text-xs font-semibold text-[#10251D]">Inspiring Ideas</span>
-              </div>
-              <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-[#EAE2D2]/70 border border-[#C9A15B]/30 shadow-xs">
-                <Globe className="w-3.5 h-3.5 text-[#8C6D34]" />
-                <span className="font-sans text-xs font-semibold text-[#10251D]">Global Perspectives</span>
-              </div>
-            </div>
 
             {/* Slider Controls */}
             <div className="flex items-center gap-2.5">
@@ -214,9 +160,6 @@ export default function SpeakersSection() {
           2. HORIZONTAL INFINITE SCROLL TRACK
           ======================================================== */}
       <div className="relative w-full overflow-hidden py-4">
-        {/* Soft Left & Right Fade Gradients */}
-        <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-[#F4F0E6] to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-[#F4F0E6] to-transparent z-20 pointer-events-none" />
 
         <motion.div
           style={{ x }}
@@ -240,8 +183,6 @@ export default function SpeakersSection() {
 
                 {/* Top Portrait Container */}
                 <div className="relative w-full h-[260px] bg-gradient-to-b from-[#FAF6ED] to-[#ECE2D0] p-4 flex items-center justify-center overflow-hidden border-b border-[#EBE3D3]">
-                  {/* Subtle Background Radial Ring */}
-                  <div className="absolute inset-4 rounded-full border border-[#C9A15B]/20 pointer-events-none" />
 
                   {/* Speaker Image */}
                   <div className="relative w-full h-full">
@@ -272,9 +213,6 @@ export default function SpeakersSection() {
                   {/* Bottom Accent Line */}
                   <div className="pt-3 border-t border-[#10251D]/6 flex items-center justify-between text-[11px] font-sans text-[#8C6D34] font-medium">
                     <span className="tracking-wider uppercase">EMERGE AURO 2026</span>
-                    <span className="text-[#C9A15B] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Learn More →
-                    </span>
                   </div>
                 </div>
               </div>

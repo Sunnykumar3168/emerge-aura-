@@ -74,8 +74,6 @@ export default function EcosystemVisual() {
                   </div>
                 </div>
                 
-                {/* Gold Node Point on the Orbit Line (Optional decorative dots) */}
-                <div className="absolute top-0 left-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#D4A63A] rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_8px_rgba(212,166,58,0.8)]" />
               </div>
             );
           })}

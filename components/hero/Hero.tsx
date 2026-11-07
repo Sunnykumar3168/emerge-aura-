@@ -4,11 +4,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
-  Calendar,
-  MapPin,
-  Sparkles,
-  ArrowRight,
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -192,7 +187,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -15 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center gap-3"
           >
             {/* Eyebrow Pill / Rule */}
             <div className="flex items-center justify-center gap-3 pt-32 sm:gap-4 mb-3 sm:mb-4">
@@ -204,7 +199,7 @@ export default function Hero() {
             </div>
 
             {/* Grand Headline */}
-            <h1 className="font-editorial text-[44px] sm:text-[62px] md:text-[78px] lg:text-[92px] xl:text-[104px] font-semibold text-[#FFFFFF] tracking-tight leading-[0.94] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
+            <h1 className="font-editorial text-6xl md:text-8xl font-semibold text-[#FFFFFF] tracking-tight leading-[0.94] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
               {currentSlide.headlineMain}{" "}
               <span className="text-[#E5C15A] font-normal italic">
                 {currentSlide.headlineAccent}
@@ -212,69 +207,31 @@ export default function Hero() {
             </h1>
 
             {/* Editorial Sub-Headline */}
-            <p className="font-editorial text-[19px] sm:text-[23px] lg:text-[27px] font-normal text-[#FAF6EE] tracking-tight leading-snug max-w-[850px] text-balance mb-2.5 sm:mb-3.5 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+            <p className="font-editorial text-xl md:text-3xl font-normal text-[#FAF6EE] tracking-tight leading-snug max-w-[850px] text-balance mb-2.5 sm:mb-3.5 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               {currentSlide.subHeadline}
             </p>
 
             {/* Narrative Description */}
-            <p className="font-sans text-[14px] sm:text-[15.5px] lg:text-[16px] text-[#F0EAE0] leading-relaxed max-w-[720px] text-balance mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-sans text-base md:text-lg text-[#F0EAE0] leading-relaxed max-w-[720px] text-balance mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {currentSlide.narrative}
             </p>
 
-            {/* Slide 1: Event Metadata Chips */}
-            {currentSlide.chips && currentSlide.chips.length > 0 && (
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-7">
-                {currentSlide.chips.map((chip, idx) => (
-                  <div
-                    key={idx}
-                    className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#E5C15A]/50 shadow-[0_4px_16px_rgba(0,0,0,0.4)] text-[11.5px] sm:text-xs font-sans text-[#FFFFFF]"
-                  >
-                    {chip.icon === "calendar" && <Calendar className="w-3.5 h-3.5 text-[#E5C15A]" />}
-                    {chip.icon === "map" && <MapPin className="w-3.5 h-3.5 text-[#E5C15A]" />}
-                    {chip.icon === "sparkles" && <Sparkles className="w-3.5 h-3.5 text-[#E5C15A]" />}
-                    <span className="font-semibold tracking-wide drop-shadow-sm">{chip.text}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Slide 2: Participating Ecosystem Tags */}
-            {currentSlide.ecosystemTags && currentSlide.ecosystemTags.length > 0 && (
-              <div className="pt-0.5 pb-0.5 mb-5 sm:mb-6 w-full max-w-[840px]">
-                <p className="text-[10px] sm:text-[10.5px] font-sans font-semibold tracking-[0.24em] text-[#E5C15A] uppercase text-center mb-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                  PARTICIPATING ECOSYSTEM
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-[11.5px] sm:text-xs font-sans text-[#FFFFFF] font-medium">
-                  {currentSlide.ecosystemTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-black/55 backdrop-blur-md border border-[#E5C15A]/45 hover:border-[#E5C15A] hover:bg-black/75 transition-colors duration-200 shadow-md drop-shadow-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full max-w-[480px]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 gap-x-10 w-full max-w-[480px]">
               <a
                 href={currentSlide.primaryCta.href}
                 target={currentSlide.primaryCta.isExternal ? "_blank" : undefined}
                 rel={currentSlide.primaryCta.isExternal ? "noopener noreferrer" : undefined}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A]"
               >
                 <span>{currentSlide.primaryCta.label}</span>
-                <ArrowRight className="w-4 h-4 text-[#050E0B] transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
               <a
                 href={currentSlide.secondaryCta.href}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full bg-black/40 backdrop-blur-md border border-white/40 text-[#FFFFFF] hover:bg-white hover:text-[#050E0B] hover:border-white transition-all duration-300 font-sans text-[12.5px] sm:text-[13.5px] font-semibold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-black/40 backdrop-blur-md border border-white/40 text-[#FFFFFF] hover:bg-white hover:text-[#050E0B] hover:border-white transition-all duration-300 font-sans text-sm md:text-base font-semibold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>{currentSlide.secondaryCta.label}</span>
-                <ArrowUpRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
           </motion.div>
@@ -304,55 +261,6 @@ export default function Hero() {
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
       </button>
 
-      {/* Bottom Progress Bar & Slide Dots */}
-      <div className="absolute bottom-5 right-5 sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10 z-30 pointer-events-auto">
-        <div
-          className="flex items-center gap-3 sm:gap-4 bg-black/55 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.4)] select-none"
-          role="region"
-          aria-label="Slide Indicator"
-        >
-          {/* Slide Number 01 / 02 */}
-          <div className="flex items-baseline gap-1 text-[13px] sm:text-sm font-medium tracking-widest text-[#F7F3E8] font-sans">
-            <span className="font-semibold text-[#E5C15A]">{currentSlide.slideNumber}</span>
-            <span className="text-white/40 text-xs">/</span>
-            <span className="text-white/60 text-xs">0{heroSlides.length}</span>
-          </div>
-
-          {/* Autoplay Progress Line */}
-          <div className="relative w-14 sm:w-20 h-[2.5px] bg-white/25 rounded-full overflow-hidden">
-            <div
-              className="absolute top-0 left-0 bottom-0 bg-[#E5C15A] rounded-full transition-[width] ease-linear"
-              style={{
-                width: `${Math.min(100, Math.max(0, progress))}%`,
-                transitionDuration: isPaused ? "0ms" : "50ms",
-              }}
-              aria-hidden="true"
-            />
-          </div>
-
-          {/* Interactive Slide Dots */}
-          <div className="flex items-center gap-1.5" role="tablist" aria-label="Slide selector">
-            {heroSlides.map((_, idx) => (
-              <button
-                key={idx}
-                role="tab"
-                aria-selected={idx === currentIndex}
-                aria-label={`Go to slide ${idx + 1}`}
-                onClick={() => handleSelectSlide(idx)}
-                className="p-1 focus:outline-none rounded-full"
-              >
-                <span
-                  className={`block rounded-full transition-all duration-300 ${
-                    idx === currentIndex
-                      ? "w-3.5 h-1.5 bg-[#E5C15A]"
-                      : "w-1.5 h-1.5 bg-white/40 hover:bg-white/80"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

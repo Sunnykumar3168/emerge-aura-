@@ -53,36 +53,6 @@ export default function ContactSection() {
       aria-label="Get In Touch — Contact Us"
       className="relative w-full bg-[#03261B] text-[#F4EFE6] py-20 sm:py-28 lg:py-32 overflow-hidden select-none"
     >
-      {/* Background Decorative Accents */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 z-0">
-        <svg
-          className="absolute -top-24 -left-24 w-[600px] h-[600px]"
-          viewBox="0 0 600 600"
-          fill="none"
-        >
-          <circle
-            cx="300"
-            cy="300"
-            r="260"
-            stroke="#D4AF37"
-            strokeWidth="1"
-            strokeDasharray="4 8"
-          />
-          <circle cx="300" cy="300" r="180" stroke="#D4AF37" strokeWidth="1" />
-        </svg>
-
-        <svg
-          className="absolute -bottom-20 -right-20 w-[550px] h-[550px]"
-          viewBox="0 0 550 550"
-          fill="none"
-        >
-          <path
-            d="M 50,50 C 200,150 350,300 500,500"
-            stroke="#D4AF37"
-            strokeWidth="1.2"
-          />
-        </svg>
-      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

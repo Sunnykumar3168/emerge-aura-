@@ -9,6 +9,12 @@ export type speaker = Speaker;
 
 export const speakers: Speaker[] = [
     {
+        id: "20",
+        img: "/images/speakers/speaker20.png",
+        name: "Thiru N. Rangaswamy",
+        designation: "Hon’ble Chief Minister Govt. of Puducherry"
+    },
+    {
         id: "0",
         img: "/images/speakers/speaker0.png",
         name: "Dr. Jayanti S. Ravi, IAS",
@@ -37,6 +43,12 @@ export const speakers: Speaker[] = [
         img: "/images/speakers/speaker4.png",
         name: "Swami Nityeshananda",
         designation: "Monk-in-Charge Ramakrishna Math, Puducherry"
+    },
+    {
+        id: "21",
+        img: "/images/speakers/speaker21.png",
+        name: "Shri Kishore Menon",
+        designation: "Positioning Startegist"
     },
     {
         id: "5",
@@ -127,6 +139,12 @@ export const speakers: Speaker[] = [
         img: "/images/speakers/speaker19.png",
         name: "Shalabh Mittal",
         designation: " CEO, School of Social Entrepreneurs"
+    },
+    {
+        id: "22",
+        img: "/images/speakers/speaker22.png",
+        name: "Vijayalakshmi Karuppasamy",
+        designation: "Fox Ventures , India & Japan"
     }
 ];
 

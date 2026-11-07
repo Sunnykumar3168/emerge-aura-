@@ -116,7 +116,7 @@ export default function SponsorsSection() {
               </motion.p>
 
               {/* Three Supporting Points */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center lg:justify-start gap-10 sm:gap-6 lg:gap-8 w-full max-w-[800px]">
+              <div className="flex flex-col md:flex-row items-start justify-center lg:justify-start gap-10 sm:gap-6 lg:gap-8 w-full max-w-[800px]">
                 
                 {/* Point 1 */}
                 <motion.div
@@ -124,7 +124,7 @@ export default function SponsorsSection() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group w-[180px] sm:w-[200px]"
+                  className="flex items-start gap-5 group md:w-[200px]"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
                     <Leaf className="w-5 h-5 text-[#063522] stroke-[1.5]" />
@@ -147,7 +147,7 @@ export default function SponsorsSection() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group w-[180px] sm:w-[200px]"
+                  className="flex items-start gap-5 group md:w-[200px]"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
                     <Users className="w-5 h-5 text-[#063522] stroke-[1.5]" />
@@ -170,7 +170,7 @@ export default function SponsorsSection() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group w-[180px] sm:w-[200px]"
+                  className="flex items-start gap-5 group md:w-[200px]"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
                     <Globe2 className="w-5 h-5 text-[#063522] stroke-[1.5]" />
@@ -214,18 +214,16 @@ export default function SponsorsSection() {
               >
                 <Link
                   href="/sponsors"
-                  className="group relative flex items-center justify-between w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-[#063522] text-[#F5CB62] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase shadow-lg border border-[#063522] hover:bg-[#08452d] hover:border-[#F5CB62]/50 hover:-translate-y-[2px] transition-all duration-400"
+                  className="group relative flex items-center justify-center w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-[#063522] text-[#F5CB62] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase shadow-lg border border-[#063522] hover:bg-[#08452d] hover:border-[#F5CB62]/50 hover:-translate-y-[2px] transition-all duration-400"
                 >
                   <span>VIEW Enablers</span>
-                  <ArrowRight className="w-5 h-5 text-[#F5CB62] group-hover:translate-x-1.5 transition-transform duration-400" />
                 </Link>
                 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="group relative flex items-center justify-between w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-transparent text-[#063522] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase border border-[#063522] hover:bg-[#063522]/5 hover:-translate-y-[2px] transition-all duration-400"
+                  className="group relative flex items-center justify-center w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-transparent text-[#063522] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase border border-[#063522] hover:bg-[#063522]/5 hover:-translate-y-[2px] transition-all duration-400"
                 >
                   <span>BECOME A Enabler</span>
-                  <ArrowRight className="w-5 h-5 text-[#063522] group-hover:translate-x-1.5 transition-transform duration-400" />
                 </button>
               </motion.div>
             </div>           
