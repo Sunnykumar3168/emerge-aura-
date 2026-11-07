@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import FloatingBrochureButton from "@/components/ui/FloatingBrochureButton";
 import "./globals.css";
+import EmergeAssistant from "@/components/ui/EmergeAssistant";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -89,9 +90,10 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-[#070e0b] text-[#f4efe6] font-sans selection:bg-[#c5a880]/30 selection:text-[#f4efe6] overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#070e0b] text-cream-100 font-sans selection:bg-[#c5a880]/30 selection:text-cream-100 overflow-x-hidden">
         <SmoothScroll>{children}</SmoothScroll>
         <FloatingBrochureButton />
+        <EmergeAssistant />
       </body>
     </html>
   );

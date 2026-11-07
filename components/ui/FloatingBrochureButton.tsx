@@ -14,7 +14,7 @@ export default function FloatingBrochureButton() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-[100] animate-in slide-in-from-bottom-10 fade-in duration-700">
+    <div className="fixed bottom-4 left-6 z-[100] animate-in slide-in-from-bottom-10 fade-in duration-700">
       <a
         href="/EMERGE AURO BROCHURE.pdf"
         download="EMERGE AURO BROCHURE.pdf"
@@ -39,7 +39,7 @@ export default function FloatingBrochureButton() {
         </div>
         
         {/* Mobile Tooltip indicator */}
-        <div className="absolute -top-10 right-0 sm:hidden opacity-0 group-hover:opacity-100 transition-opacity bg-[#063522] text-[#F5CB62] text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-lg border border-[#F5CB62]/20">
+        <div className="absolute -top-10 left-0 sm:hidden opacity-0 group-hover:opacity-100 transition-opacity bg-[#063522] text-[#F5CB62] text-[11px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none shadow-lg border border-[#F5CB62]/20">
           Download Brochure
         </div>
       </a>
