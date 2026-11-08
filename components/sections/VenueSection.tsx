@@ -53,7 +53,6 @@ export default function VenueSection() {
         >
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-3">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#063522]/30" />
             <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-[0.24em] text-[#063522]/80 uppercase">
               LOCATION & ACCESS
             </span>
@@ -158,7 +157,6 @@ export default function VenueSection() {
                       key={idx}
                       className="flex items-center gap-2 text-xs sm:text-[13px] text-[#243E33]/90 font-sans"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-[#B8932C] shrink-0" />
                       <span>{item}</span>
                     </div>
                   ))}

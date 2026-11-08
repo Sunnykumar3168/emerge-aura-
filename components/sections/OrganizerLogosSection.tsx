@@ -127,11 +127,9 @@ function TierDivider({ label, delay = 0 }: { label: string; delay?: number }) {
       transition={{ duration: 0.7, delay, ease: EASE_CUBIC }}
       className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
     >
-      <span className="flex-1 max-w-[120px] h-[1px] bg-[#C89B3C]/40" />
       <span className="text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.22em] text-[#C89B3C] uppercase whitespace-nowrap">
         {label}
       </span>
-      <span className="flex-1 max-w-[120px] h-[1px] bg-[#C89B3C]/40" />
     </motion.div>
   );
 }
@@ -158,11 +156,9 @@ export default function OrganizerLogosSection() {
         >
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
-            <span className="w-8 sm:w-14 h-[1px] bg-[#C89B3C]/60" />
             <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] text-[#C89B3C] uppercase">
               PRESENTED BY
             </span>
-            <span className="w-8 sm:w-14 h-[1px] bg-[#C89B3C]/60" />
           </div>
 
           {/* Title */}

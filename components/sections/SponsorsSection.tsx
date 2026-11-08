@@ -86,11 +86,9 @@ export default function SponsorsSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 className="flex items-center gap-4 mb-8"
               >
-                <span className="hidden lg:block w-20 h-[1px] bg-[#6B4A16]/50" />
                 <span className="text-[13px] font-sans font-semibold tracking-[0.25em] text-[#6B4A16] uppercase">
                   PARTNER FOR IMPACT
                 </span>
-                <span className="w-20 h-[1px] bg-[#6B4A16]/50" />
               </motion.div>
 
               {/* Main Heading */}

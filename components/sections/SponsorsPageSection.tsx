@@ -60,11 +60,9 @@ export default function SponsorsPageSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex items-center gap-4 mb-6"
           >
-            <span className="hidden sm:block w-12 h-[1px] bg-[#C89B3C]" />
             <span className="text-[12px] font-sans font-semibold tracking-[0.2em] text-[#C89B3C] uppercase">
               PARTNER FOR IMPACT
             </span>
-            <span className="hidden sm:block w-12 h-[1px] bg-[#C89B3C]" />
           </motion.div>
 
           <motion.h1
@@ -257,11 +255,9 @@ export default function SponsorsPageSection() {
             viewport={{ once: true, amount: 0.8 }}
             className="flex items-center gap-4 mb-6"
           >
-            <span className="hidden sm:block w-12 h-[1px] bg-[#C89B3C]/60" />
             <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.2em] text-[#C89B3C] uppercase">
               READY TO PARTNER WITH EMERGE AURO?
             </span>
-            <span className="hidden sm:block w-12 h-[1px] bg-[#C89B3C]/60" />
           </motion.div>
 
           <motion.h2

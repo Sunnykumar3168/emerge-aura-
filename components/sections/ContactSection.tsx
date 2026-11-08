@@ -64,11 +64,9 @@ export default function ContactSection() {
           className="text-center mb-10 sm:mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-3">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#D4AF37]/50" />
             <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-[0.24em] text-[#E5C15A] uppercase">
               REACH OUT
             </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#D4AF37]/50" />
           </div>
 
           <h2 className="font-editorial text-[42px] sm:text-[52px] lg:text-[58px] font-bold text-[#E5C15A] leading-tight tracking-tight mb-2">

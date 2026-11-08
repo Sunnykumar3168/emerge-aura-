@@ -39,11 +39,9 @@ function TierDivider({ label, delay = 0 }: { label: string; delay?: number }) {
       transition={{ duration: 0.7, delay, ease: EASE_CUBIC }}
       className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
     >
-      <span className="flex-1 max-w-[120px] h-[1px] bg-[#C5A880]/40" />
-      <span className="text-md md:text-xl font-sans font-bold tracking-[0.22em] text-[#C5A880] uppercase whitespace-nowrap">
+      <span className="text-md md:text-xl font-sans font-bold tracking-[0.22em] text-[#C5A880] uppercase text-center">
         {label}
       </span>
-      <span className="flex-1 max-w-[120px] h-[1px] bg-[#C5A880]/40" />
     </motion.div>
   );
 }
@@ -156,11 +154,9 @@ export default function OrganizersSection() {
           className="text-center flex flex-col items-center mb-16 sm:mb-20"
         >
           <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3">
-            <span className="w-8 sm:w-14 h-[1px] bg-[#C5A880]/60" />
             <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#8C733E] uppercase">
               OUR ECOSYSTEM PARTNERS
             </span>
-            <span className="w-8 sm:w-14 h-[1px] bg-[#C5A880]/60" />
           </div>
 
           <h2 className="font-editorial text-[44px] sm:text-[56px] lg:text-[68px] font-semibold text-[#0F2D25] tracking-tight leading-none mb-4">

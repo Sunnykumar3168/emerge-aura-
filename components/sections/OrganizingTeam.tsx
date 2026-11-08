@@ -35,13 +35,13 @@ const organizers = [
     image: "/organizers/vishwnathan.png", 
     gradient: "from-[#3157F5] to-[#6558FF]" 
   },
-  { 
-    name: "Ashok Reddy", 
-    role: "FWC", 
-    org: "", 
-    image: "/organizers/ashok reddy.png", 
-    gradient: "from-[#A83DFF] to-[#D45BFF]" 
-  },
+  // { 
+  //   name: "Ashok Reddy", 
+  //   role: "FWC", 
+  //   org: "", 
+  //   image: "/organizers/ashok reddy.png", 
+  //   gradient: "from-[#A83DFF] to-[#D45BFF]" 
+  // },
   { 
     name: "Senthil K Kumar", 
     role: "Strategic Advisor", 
@@ -171,16 +171,6 @@ export default function OrganizingTeam() {
           Meet the people driving Emerge Auro forward with vision, expertise and dedication.<br className="hidden sm:block" />
           Together, we build a more conscious and inclusive tomorrow.
         </motion.p>
-        
-        <motion.div
-          variants={revealUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.8 }}
-          className="flex justify-center mt-8"
-        >
-          <div className="w-[80px] h-[1px] bg-[#D4A63A]" />
-        </motion.div>
       </div>
 
       {/* ========================================================

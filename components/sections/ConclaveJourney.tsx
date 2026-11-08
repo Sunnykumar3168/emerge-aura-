@@ -38,11 +38,9 @@ export default function ConclaveJourney() {
         >
           {/* Eyebrow: ────── THE CONCLAVE JOURNEY ────── */}
           <div className="flex items-center justify-center gap-3.5 mb-5">
-            <span className="w-12 sm:w-20 h-[1px] bg-[#C9A15B]/50" />
             <span className="text-[10.5px] sm:text-[11.5px] font-sans font-medium tracking-[0.32em] text-[#C9A15B] uppercase">
               {eyebrow}
             </span>
-            <span className="w-12 sm:w-20 h-[1px] bg-[#C9A15B]/50" />
           </div>
 
           {/* Main Heading: Three Days. One Purpose. */}

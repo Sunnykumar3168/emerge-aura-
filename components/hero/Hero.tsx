@@ -191,11 +191,9 @@ export default function Hero() {
           >
             {/* Eyebrow Pill / Rule */}
             <div className="flex items-center justify-center gap-3 pt-32 sm:gap-4 mb-3 sm:mb-4">
-              <span className="w-8 sm:w-14 h-[1.5px] bg-[#E5C15A]" />
               <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#E5C15A] uppercase select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 {currentSlide.eyebrow}
               </span>
-              <span className="w-8 sm:w-14 h-[1.5px] bg-[#E5C15A]" />
             </div>
 
             {/* Grand Headline */}

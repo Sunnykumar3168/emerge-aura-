@@ -71,11 +71,9 @@ export default function LeadersSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex items-center gap-4 mb-6"
         >
-          <span className="w-12 sm:w-20 h-[1px] bg-[#D4A63A]/60" />
           <span className="text-[11px] sm:text-[13px] font-sans font-semibold tracking-[0.25em] text-[#D4A63A] uppercase">
             VISIONARIES · BUILDERS · CHANGE-MAKERS
           </span>
-          <span className="w-12 sm:w-20 h-[1px] bg-[#D4A63A]/60" />
         </motion.div>
 
         <motion.h2

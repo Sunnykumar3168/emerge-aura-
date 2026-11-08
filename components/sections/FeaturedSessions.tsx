@@ -30,11 +30,9 @@ export default function FeaturedSessions() {
         >
           {/* Eyebrow: ────── EXPLORE INSIGHTS ────── */}
           <div className="flex items-center justify-center gap-3.5 mb-4">
-            <span className="w-10 sm:w-16 h-[1px] bg-[#C9A15B]/60" />
             <span className="text-[10.5px] sm:text-[11.5px] font-sans font-medium tracking-[0.3em] text-[#C9A15B] uppercase">
               EXPLORE INSIGHTS
             </span>
-            <span className="w-10 sm:w-16 h-[1px] bg-[#C9A15B]/60" />
           </div>
 
           {/* Heading: Featured sessions */}

@@ -11,12 +11,12 @@ export default function AboutEmerge() {
     <section
       id="about"
       aria-label="About Emerge Auro — Bharat's First Conscious Capital Conclave"
-      className="relative w-full bg-[#F4F0E6] text-[#10251D] overflow-hidden flex items-center justify-center select-none py-16 lg:py-6"
+      className="relative w-full bg-[#F4F0E6] text-[#10251D] overflow-hidden flex items-center justify-center select-none py-10 lg:py-16"
     >
       {/* ========================================================
           3. MAIN EDITORIAL CONTENT CONTAINER
           ======================================================== */}
-      <div className="relative z-20 w-full max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col lg:flex-row items-center justify-between">
+      <div className="relative z-20 w-full max-w-[1500px] mx-auto px-6 sm:px-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
         {/* Mobile & Desktop Ecosystem View (Fully Visible in Flex Layout) */}
         <div className="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] xl:w-[580px] xl:h-[580px] 2xl:w-[680px] 2xl:h-[680px] mb-8 lg:mb-0 shrink-0 z-30">
           {/* Outer Thin Champagne-Gold Orbital Ring with Satellite Dot (Desktop only) */}
@@ -32,7 +32,7 @@ export default function AboutEmerge() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-20 w-full lg:w-[52%] xl:w-[50%] 2xl:w-[46%] flex flex-col items-center lg:items-start text-center lg:text-left"
+          className="relative z-20 w-full flex flex-col items-center lg:items-start text-center lg:text-left"
         >
         
 

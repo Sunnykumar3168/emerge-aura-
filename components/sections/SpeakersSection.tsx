@@ -106,11 +106,9 @@ export default function SpeakersSection() {
           >
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-3.5">
-              <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/60" />
               <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-[0.26em] text-[#C9A15B] uppercase">
                 VOICES OF CHANGE
               </span>
-              <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/60" />
             </div>
 
             {/* Main Title */}

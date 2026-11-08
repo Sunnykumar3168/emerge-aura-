@@ -37,11 +37,9 @@ export default function StakeholderSection() {
         >
           {/* Eyebrow with decorative flanking gold lines */}
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/70" />
             <span className="text-[11px] sm:text-xs font-sans font-semibold tracking-[0.28em] text-[#8C733E] uppercase">
               THE EMERGE ECOSYSTEM
             </span>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C9A15B]/70" />
           </div>
 
           {/* Main Headline */}
