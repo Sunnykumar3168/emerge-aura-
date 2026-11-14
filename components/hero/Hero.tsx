@@ -190,7 +190,7 @@ export default function Hero() {
             className="flex flex-col items-center gap-3"
           >
             {/* Eyebrow Pill / Rule */}
-            <div className="flex items-center justify-center gap-3 pt-32 sm:gap-4 mb-3 sm:mb-4">
+            <div className="flex items-center justify-center gap-3 pt-36 sm:pt-40 sm:gap-4 mb-3 sm:mb-4">
               <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#E5C15A] uppercase select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                 {currentSlide.eyebrow}
               </span>

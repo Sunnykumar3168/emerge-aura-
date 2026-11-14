@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 import SignInModal from "@/components/ui/SignInModal";
 
 interface NavItem {
@@ -44,7 +44,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out py-4 sm:py-5 bg-[#F5F1E8]`}>
+      <header className="fixed top-9 sm:top-10 left-0 right-0 z-40 transition-all duration-300 ease-out py-3.5 sm:py-4 bg-[#F5F1E8] shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -126,7 +126,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`fixed inset-0 z-40 lg:hidden backdrop-blur-xl pt-24 pb-10 px-6 flex flex-col justify-between bg-[#F7F2E8]`}
+            className={`fixed inset-0 z-40 lg:hidden backdrop-blur-xl pt-28 pb-10 px-6 flex flex-col justify-between bg-[#F7F2E8]`}
           >
             <div className="flex flex-col gap-5 mt-2">
 
