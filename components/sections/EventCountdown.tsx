@@ -202,19 +202,19 @@ export default function EventCountdown() {
 
             {/* Headline */}
             <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-medium text-[#112019] tracking-tight mb-3">
-              Indian Traditional Attire Mandatory
+              Bharat Traditional Attire Mandatory
             </h3>
 
             {/* Guidelines Text */}
             <p className="font-sans text-[15px] sm:text-base md:text-[17px] text-[#26352D] leading-relaxed max-w-2xl mx-auto font-normal">
-              Participants are required to wear Indian traditional attire. Western outfits and formal dress codes are not permitted. Only Indian traditional clothing is allowed.
+              Participants are required to wear Bharat traditional attire. Western outfits and formal dress codes are not permitted. Only Bharat traditional clothing is allowed.
             </p>
 
             {/* Visual indicators */}
             <div className="mt-6 pt-5 border-t border-[#C59B4E]/20 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-sans">
               <span className="inline-flex items-center gap-1.5 text-[#1b3d2f] font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#2e7d32]" />
-                Indian Traditional Clothing Only
+                Bharat Traditional Clothing Only
               </span>
               <span className="text-[#C59B4E]/40 hidden sm:inline">•</span>
               <span className="inline-flex items-center gap-1.5 text-[#7f1d1d] font-semibold">

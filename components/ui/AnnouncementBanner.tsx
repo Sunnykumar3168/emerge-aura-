@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function AnnouncementBanner() {
   const dressCodeText =
-    "Participants are required to wear Indian traditional attire. Western outfits and formal dress codes are not permitted. Only Indian traditional clothing is allowed.";
+    "Participants are required to wear Bharat traditional attire. Western outfits and formal dress codes are not permitted. Only Bharat traditional clothing is allowed.";
 
   return (
     <aside
@@ -28,7 +28,7 @@ export default function AnnouncementBanner() {
           {/* Segment 1 */}
           <div className="flex items-center gap-2.5 pr-8 sm:pr-12">
             <span className="text-[11px] sm:text-[12px] font-sans text-[#FAF5E6] font-medium">
-              <strong className="text-[#E5C15A] font-semibold">Indian Traditional Attire Mandatory:</strong>{" "}
+              <strong className="text-[#E5C15A] font-semibold">Bharat Traditional Attire Mandatory:</strong>{" "}
               {dressCodeText}
             </span>
           </div>
@@ -36,7 +36,7 @@ export default function AnnouncementBanner() {
           {/* Segment 2 (Duplicate for continuous loop) */}
           <div className="flex items-center gap-2.5 pr-8 sm:pr-12" aria-hidden="true">
             <span className="text-[11px] sm:text-[12px] font-sans text-[#FAF5E6] font-medium">
-              <strong className="text-[#E5C15A] font-semibold">Indian Traditional Attire Mandatory:</strong>{" "}
+              <strong className="text-[#E5C15A] font-semibold">Bharat Traditional Attire Mandatory:</strong>{" "}
               {dressCodeText}
             </span>
           </div>
