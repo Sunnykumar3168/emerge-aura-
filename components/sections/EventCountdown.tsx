@@ -124,69 +124,7 @@ export default function EventCountdown() {
           >
             Bharat&apos;s first Conscious Capital Conclave is almost here. Be part of
             it — don&apos;t miss your chance.
-          </motion.p>
-
-          {/* Live Editorial Countdown */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.45, ease: "easeOut" }}
-            className="w-full mt-14 sm:mt-16 lg:mt-20 pt-8"
-            role="region"
-            aria-label="Event countdown to October 28, 2026"
-          >
-            {timeLeft.isCompleted ? (
-              <div className="py-6 px-8 rounded-xl border border-[#C59B4E]/30 bg-[#EFE9DD]/60">
-                <span className="font-editorial text-3xl sm:text-4xl text-[#112019] tracking-wider uppercase">
-                  EMERGE AURO IS HERE
-                </span>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center max-w-3xl mx-auto relative">
-                {countdownUnits.map((unit, idx) => (
-                  <div
-                    key={unit.label}
-                    className="relative flex flex-col items-center justify-center py-4 px-2 sm:px-4"
-                  >
-                    {/* Number Display */}
-                    <div className="font-editorial text-[50px] sm:text-[62px] md:text-[68px] lg:text-[74px] font-normal leading-none text-[#112019] tracking-tight select-none">
-                      {hasMounted ? unit.value : unit.value}
-                    </div>
-
-                    {/* Unit Label */}
-                    <span className="text-[10px] sm:text-[11px] font-sans font-medium tracking-[0.24em] text-[#5B6E63] uppercase mt-2 select-none">
-                      {unit.label}
-                    </span>
-
-                    {/* Desktop Vertical Divider between items (except last) */}
-                    {idx < 3 && (
-                      <div
-                        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 lg:h-14 bg-[rgba(20,30,25,0.15)]"
-                        aria-hidden="true"
-                      />
-                    )}
-
-                    {/* Mobile 2x2 Divider: Vertical divider for odd items on mobile */}
-                    {idx % 2 === 0 && (
-                      <div
-                        className="md:hidden absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-10 bg-[rgba(20,30,25,0.15)]"
-                        aria-hidden="true"
-                      />
-                    )}
-
-                    {/* Mobile 2x2 Divider: Horizontal divider between row 1 and row 2 */}
-                    {idx < 2 && (
-                      <div
-                        className="md:hidden absolute bottom-0 left-4 right-4 h-[1px] bg-[rgba(20,30,25,0.1)]"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </motion.div>
+          </motion.p> 
 
           {/* Dress Code Guidelines Section - Conscious by Choice */}
           <motion.div
