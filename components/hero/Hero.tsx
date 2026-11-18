@@ -127,12 +127,12 @@ export default function Hero() {
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full h-[100dvh] min-h-[100dvh] bg-[#031C13] text-[#F5F1E8] overflow-hidden select-none flex flex-col items-center justify-center"
+      className="relative w-full h-[100dvh] min-h-[100dvh] bg-[#02130C] text-[#F5F1E8] overflow-hidden select-none flex flex-col items-center justify-center"
     >
       {/* ========================================================
-          1. BACKGROUND IMAGES SLIDESHOW (Banyan & Matrimandir)
+1. BACKGROUND IMAGES SLIDESHOW (Banyan & Matrimandir)
           ======================================================== */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.id}
@@ -146,25 +146,29 @@ export default function Hero() {
               fill
               priority={idx === 0}
               sizes="100vw"
-              className={`object-cover ${slide.objectPosition ?? "object-center"}`}
+              quality={92}
+              className="object-cover object-center w-full h-full"
             />
           </div>
         ))}
-
-        {/* Ambient Dark Green and Gold Overlay for Maximum Content Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#02140D] via-[#032418]/80 to-[#02140D]/90 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-black/45" />
-
-        {/* Cinematic Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.7)_100%)] pointer-events-none" />
-
-        {/* Subtle Sacred Geometry Celestial Rings Background Pattern */}
+  {/* Balanced Scrim Overlays: keeps the background image visible while giving rich contrast for text */}
         <div
-          className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-20"
+          className="absolute inset-0 bg-gradient-to-t from-[#021810]/90 via-[#032317]/60 to-[#021810]/50 z-10 pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,28,19,0.35)_0%,rgba(2,16,11,0.75)_100%)] z-10 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        {/* Ambient Gold Orbital Rings in corner */}
+        <div
+          className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 lg:-top-32 lg:-right-32 pointer-events-none select-none z-10 opacity-50"
           aria-hidden="true"
         >
-          <svg
-            className="w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] text-[#E5C15A]"
+
+       <svg
+            className="absolute -top-24 -left-24 w-[480px] h-[480px] sm:w-[620px] sm:h-[620px] lg:w-[720px] lg:h-[720px] pointer-events-none animate-[spin_120s_linear_infinite]"
             viewBox="0 0 700 700"
             fill="none"
           >
@@ -173,6 +177,7 @@ export default function Hero() {
           </svg>
         </div>
       </div>
+
 
       {/* ========================================================
           2. SLIDE CONTENT CONTAINER
@@ -185,46 +190,47 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -15 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-3 max-w-4xl"
           >
-            {/* Eyebrow Pill / Rule */}
-            <div className="flex items-center justify-center gap-3 pt-36 sm:pt-40 sm:gap-4 mb-3 sm:mb-4">
-              <span className="text-[11px] sm:text-[12px] font-sans font-semibold tracking-[0.24em] sm:tracking-[0.28em] text-[#E5C15A] uppercase select-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            {/* Eyebrow Pill Badge - Highlighted with gold pill border & soft dark backdrop */}
+            <div className="flex items-center justify-center pt-32 sm:pt-36 mb-2">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 border border-[#E5C15A]/40 backdrop-blur-md text-[11px] sm:text-[12.5px] font-sans font-bold tracking-[0.26em] text-[#E5C15A] uppercase select-none shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E5C15A] animate-pulse" />
                 {currentSlide.eyebrow}
               </span>
             </div>
 
-            {/* Grand Headline */}
-            <h1 className="font-editorial text-6xl md:text-8xl font-semibold text-[#FFFFFF] tracking-tight leading-[0.94] mb-3 sm:mb-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.7)]">
+            {/* Grand Headline - Strong drop shadow & golden highlight */}
+            <h1 className="font-editorial text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-semibold text-[#FFFFFF] tracking-tight leading-[0.93] mb-2 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
               {currentSlide.headlineMain}{" "}
-              <span className="text-[#E5C15A] font-normal italic">
+              <span className="text-[#E5C15A] font-normal italic drop-shadow-[0_2px_16px_rgba(229,193,90,0.45)]">
                 {currentSlide.headlineAccent}
               </span>
             </h1>
 
-            {/* Editorial Sub-Headline */}
-            <p className="font-editorial text-xl md:text-3xl font-normal text-[#FAF6EE] tracking-tight leading-snug max-w-[850px] text-balance mb-2.5 sm:mb-3.5 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+            {/* Editorial Sub-Headline - Clean contrast & readability */}
+            <p className="font-editorial text-xl sm:text-2xl md:text-3xl font-medium text-[#FAF7EE] tracking-tight leading-snug max-w-[850px] text-balance mb-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
               {currentSlide.subHeadline}
             </p>
 
-            {/* Narrative Description */}
-            <p className="font-sans text-base md:text-lg text-[#F0EAE0] leading-relaxed max-w-[720px] text-balance mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            {/* Narrative Description - Backed with soft readable styling */}
+            <p className="font-sans text-[15px] sm:text-base md:text-lg text-[#F4EFE6]/90 leading-relaxed max-w-[720px] text-balance mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-normal">
               {currentSlide.narrative}
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 gap-x-10 w-full max-w-[480px]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 gap-x-6 w-full max-w-[480px]">
               <button
                 type="button"
                 onClick={() => setIsRegisterModalOpen(true)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A] cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#F0CD6D] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.5)] hover:shadow-[0_6px_32px_rgba(229,193,90,0.7)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A] cursor-pointer"
               >
                 <span>{currentSlide.primaryCta.label}</span>
               </button>
 
               <a
                 href={currentSlide.secondaryCta.href}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-black/40 backdrop-blur-md border border-white/40 text-[#FFFFFF] hover:bg-white hover:text-[#050E0B] hover:border-white transition-all duration-300 font-sans text-sm md:text-base font-semibold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-black/50 backdrop-blur-md border border-white/50 text-[#FFFFFF] hover:bg-white hover:text-[#050E0B] hover:border-white transition-all duration-300 font-sans text-sm md:text-base font-semibold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>{currentSlide.secondaryCta.label}</span>
               </a>
@@ -241,7 +247,7 @@ export default function Hero() {
         type="button"
         onClick={handlePrev}
         aria-label="Previous Slide"
-        className="group absolute left-4 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/45 hover:bg-black/75 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+        className="group absolute left-4 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/55 hover:bg-black/80 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.5)] cursor-pointer"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:-translate-x-0.5" />
       </button>
@@ -251,7 +257,7 @@ export default function Hero() {
         type="button"
         onClick={handleNext}
         aria-label="Next Slide"
-        className="group absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/45 hover:bg-black/75 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+        className="group absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 lg:w-13 lg:h-13 rounded-full flex items-center justify-center bg-black/55 hover:bg-black/80 border border-white/35 hover:border-[#E5C15A] backdrop-blur-md text-[#F7F3E8] hover:text-[#E5C15A] transition-all duration-300 active:scale-95 shadow-[0_4px_20px_rgba(0,0,0,0.5)] cursor-pointer"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
       </button>

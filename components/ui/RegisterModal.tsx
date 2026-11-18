@@ -16,7 +16,7 @@ export const B2B_REGISTRATION_URL =
   "https://forms.zohopublic.in/infosectio1/form/FROM/formperma/CiZNCLngp4GIMES69xsXFTyONhnzAebnN61MZRRTf9g";
 
 export const STARTUP_PITCH_REGISTRATION_URL =
-  "https://forms.gle/g7AqCiukHj6FNXhu5";
+  "https://forms.zohopublic.in/infosectio1/form/EmergePitchFest2026StartupRegistration1/formperma/nEA6Ws3ius3a-s-D1AiygAMnBBNwmHcT4nW6JPlOcCc";
 
 export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   const [mounted, setMounted] = useState(false);
