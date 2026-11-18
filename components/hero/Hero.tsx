@@ -8,6 +8,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { heroSlides } from "@/data/heroSlides";
+import RegisterModal from "@/components/ui/RegisterModal";
 
 const AUTOPLAY_DURATION = 6000; // 6 seconds per slide
 
@@ -15,6 +16,7 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const progressStartTimeRef = useRef<number>(Date.now());
@@ -144,29 +146,25 @@ export default function Hero() {
               fill
               priority={idx === 0}
               sizes="100vw"
-              quality={92}
-              className="object-cover object-center w-full h-full"
+              className={`object-cover ${slide.objectPosition ?? "object-center"}`}
             />
           </div>
         ))}
 
-        {/* Balanced Scrim Overlays: keeps the background image visible while giving rich contrast for text */}
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[#021810]/90 via-[#032317]/60 to-[#021810]/50 z-10 pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,28,19,0.35)_0%,rgba(2,16,11,0.75)_100%)] z-10 pointer-events-none"
-          aria-hidden="true"
-        />
+        {/* Ambient Dark Green and Gold Overlay for Maximum Content Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#02140D] via-[#032418]/80 to-[#02140D]/90 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-black/45" />
 
-        {/* Ambient Gold Orbital Rings in corner */}
+        {/* Cinematic Vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+
+        {/* Subtle Sacred Geometry Celestial Rings Background Pattern */}
         <div
-          className="absolute -top-20 -right-20 sm:-top-28 sm:-right-28 lg:-top-32 lg:-right-32 pointer-events-none select-none z-10 opacity-50"
+          className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-20"
           aria-hidden="true"
         >
           <svg
-            className="absolute -top-24 -left-24 w-[480px] h-[480px] sm:w-[620px] sm:h-[620px] lg:w-[720px] lg:h-[720px] pointer-events-none animate-[spin_120s_linear_infinite]"
+            className="w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] text-[#E5C15A]"
             viewBox="0 0 700 700"
             fill="none"
           >
@@ -216,14 +214,13 @@ export default function Hero() {
 
             {/* Primary Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 gap-x-10 w-full max-w-[480px]">
-              <a
-                href={currentSlide.primaryCta.href}
-                target={currentSlide.primaryCta.isExternal ? "_blank" : undefined}
-                rel={currentSlide.primaryCta.isExternal ? "noopener noreferrer" : undefined}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A]"
+              <button
+                type="button"
+                onClick={() => setIsRegisterModalOpen(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A] cursor-pointer"
               >
                 <span>{currentSlide.primaryCta.label}</span>
-              </a>
+              </button>
 
               <a
                 href={currentSlide.secondaryCta.href}
@@ -259,6 +256,8 @@ export default function Hero() {
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
       </button>
 
+      {/* Registration Choice Modal */}
+      <RegisterModal isOpen={isRegisterModalOpen} onClose={() => setIsRegisterModalOpen(false)} />
     </section>
   );
 }
