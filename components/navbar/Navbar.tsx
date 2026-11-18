@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import SignInModal from "@/components/ui/SignInModal";
+import RegisterModal from "@/components/ui/RegisterModal";
 
 interface NavItem {
   label: string;
@@ -27,6 +28,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -98,14 +100,13 @@ export default function Navbar() {
           {/* CTA & Mobile Menu Toggle */}
           <div className="flex items-center gap-3 sm:gap-4">
             {/* Primary CTA: REGISTER NOW */}
-            <a
-              href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 shadow-md text-white bg-[#073B2A] hover:bg-[#063522] hover:scale-[1.03] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#073B2A]"
+            <button
+              type="button"
+              onClick={() => setIsRegisterModalOpen(true)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-[0.12em] uppercase transition-all duration-300 shadow-md text-white bg-[#073B2A] hover:bg-[#063522] hover:scale-[1.03] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#073B2A] cursor-pointer"
             >
               <span>REGISTER NOW</span>
-            </a>
+            </button>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -157,15 +158,16 @@ export default function Navbar() {
             </div>
 
             <div className="space-y-4 pt-6 pb-2 border-t border-[#073B2A]/15 mt-6">
-              <a
-                href="https://forms.zohopublic.in/infosectio1/form/ClientDetails/formperma/Ou2moWIn4JWNQPOqsPB0tHxOEBFwqaz3oXxgB1h3Sms"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase shadow-md transition-all text-white bg-[#073B2A] hover:bg-[#063522]"
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsRegisterModalOpen(true);
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase shadow-md transition-all text-white bg-[#073B2A] hover:bg-[#063522] cursor-pointer"
               >
                 <span>REGISTER NOW</span>
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
@@ -173,6 +175,9 @@ export default function Navbar() {
 
       {/* Sign In Modal */}
       <SignInModal isOpen={isSignInModalOpen} onClose={() => setIsSignInModalOpen(false)} />
+
+      {/* Registration Choice Modal */}
+      <RegisterModal isOpen={isRegisterModalOpen} onClose={() => setIsRegisterModalOpen(false)} />
     </>
   );
 }

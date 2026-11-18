@@ -8,6 +8,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { heroSlides } from "@/data/heroSlides";
+import RegisterModal from "@/components/ui/RegisterModal";
 
 const AUTOPLAY_DURATION = 6000; // 6 seconds per slide
 
@@ -15,6 +16,7 @@ export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const progressStartTimeRef = useRef<number>(Date.now());
@@ -216,14 +218,13 @@ export default function Hero() {
 
             {/* Primary Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 gap-x-10 w-full max-w-[480px]">
-              <a
-                href={currentSlide.primaryCta.href}
-                target={currentSlide.primaryCta.isExternal ? "_blank" : undefined}
-                rel={currentSlide.primaryCta.isExternal ? "noopener noreferrer" : undefined}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A]"
+              <button
+                type="button"
+                onClick={() => setIsRegisterModalOpen(true)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-[#E5C15A] text-[#050E0B] hover:bg-[#D4A63A] hover:text-[#000000] transition-all duration-300 font-sans text-sm md:text-base font-bold tracking-[0.14em] uppercase shadow-[0_4px_24px_rgba(229,193,90,0.4)] hover:shadow-[0_8px_32px_rgba(229,193,90,0.6)] hover:-translate-y-0.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C15A] cursor-pointer"
               >
                 <span>{currentSlide.primaryCta.label}</span>
-              </a>
+              </button>
 
               <a
                 href={currentSlide.secondaryCta.href}
@@ -259,6 +260,8 @@ export default function Hero() {
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
       </button>
 
+      {/* Registration Choice Modal */}
+      <RegisterModal isOpen={isRegisterModalOpen} onClose={() => setIsRegisterModalOpen(false)} />
     </section>
   );
 }
