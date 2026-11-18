@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Ticket, Handshake, Rocket, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
@@ -20,27 +20,51 @@ export const STARTUP_PITCH_REGISTRATION_URL =
 
 export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   const [mounted, setMounted] = useState(false);
+  const modalContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Lock background scroll when modal is open (both document.body and document.documentElement)
   useEffect(() => {
     if (isOpen) {
-      const originalOverflow = document.body.style.overflow;
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalBodyTouchAction = document.body.style.touchAction;
+
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+
       return () => {
-        document.body.style.overflow = originalOverflow;
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+        document.body.style.touchAction = originalBodyTouchAction;
       };
     }
   }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!mounted) return null;
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div
+          data-lenis-prevent
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-hidden overscroll-none"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -48,17 +72,19 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[#050E0B]/75 backdrop-blur-md"
+            className="fixed inset-0 bg-[#050E0B]/80 backdrop-blur-md"
             aria-hidden="true"
           />
 
-          {/* Modal Box */}
+          {/* Modal Box Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-xl bg-[#FAF7F0] rounded-[28px] p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.35)] border border-[#E7DEC8] text-[#0F2D25] z-10 overflow-hidden my-auto max-h-[90vh] overflow-y-auto"
+            ref={modalContentRef}
+            data-lenis-prevent
+            className="relative w-full max-w-xl bg-[#FAF7F0] rounded-[28px] p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.45)] border border-[#E7DEC8] text-[#0F2D25] z-10 my-auto max-h-[90vh] overflow-y-auto overscroll-contain"
           >
             {/* Subtle background ambient lights */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
@@ -69,7 +95,7 @@ export default function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
               onClick={onClose}
               type="button"
               aria-label="Close registration modal"
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#0F2D25]/5 hover:bg-[#0F2D25]/10 text-[#0F2D25] flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C89B3C]"
+              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#0F2D25]/5 hover:bg-[#0F2D25]/10 text-[#0F2D25] flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C89B3C] cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
