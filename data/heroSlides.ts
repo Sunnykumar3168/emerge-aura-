@@ -33,7 +33,7 @@ export const heroSlides: HeroSlideData[] = [
     slideNumber: "01",
     image: "/images/hero/hero2.webp",
     alt: "Emerge Auro — Regenerative Ecosystem and Conscious Capital Slide 2",
-    eyebrow: "COLLABORATIVE CONVERGENCE · 2026",
+    eyebrow: "Bharat'S FIRST CONSCIOUS CAPITAL CONCLAVE",
     headlineMain: "CONSCIOUS",
     headlineAccent: "CAPITAL",
     subHeadline: "Bridging Grassroots Wisdom with Global Enterprise & Thought Leadership",
@@ -69,7 +69,7 @@ export const heroSlides: HeroSlideData[] = [
     headlineAccent: "AURO",
     subHeadline: "Where Purpose Meets Capital • Innovation Meets Consciousness",
     narrative:
-      "Uniting startups, investors, researchers, institutions, and thinkers in Pondicherry & Auroville to build a regenerative future founded on People, Planet, and Prosperity.",
+      "Uniting startups, investors, researchers, institutions, and thinkers to build a regenerative future founded on People, Planet, and Prosperity.",
     chips: [
       {
         icon: "calendar",

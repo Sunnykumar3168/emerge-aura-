@@ -16,14 +16,12 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "HOME", href: "/" },
-  { label: "ABOUT", href: "/#about" },
-  { label: "EXPERIENCE", href: "/#experience" },
+  { label: "ABOUT", href: "/#verticals" },
   { label: "AGENDA", href: "/#agenda" },
-  // { label: "IMMERSION", href: "/#immersion" },
-  // { label: "SUSTAINABILITY", href: "/#sustainability" },
+  { label: "IMMERSION", href: "/#immersion" },
+  { label: "SUSTAINABILITY", href: "/#sustainability" },
   { label: "Enabler", href: "/sponsors" },
-  { label: "VENUE", href: "/#venue" },
-  // { label: "HELP", href: "/help" },
+  { label: "HELP", href: "/help" },
 ];
 
 export default function Navbar() {

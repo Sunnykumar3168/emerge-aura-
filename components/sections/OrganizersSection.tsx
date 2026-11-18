@@ -29,23 +29,6 @@ const cardVariants: Variants = {
   },
 };
 
-/* Tier Divider component for organizer sections */
-function TierDivider({ label, delay = 0 }: { label: string; delay?: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, delay, ease: EASE_CUBIC }}
-      className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
-    >
-      <span className="text-md md:text-xl font-sans font-bold tracking-[0.22em] text-[#C5A880] uppercase text-center">
-        {label}
-      </span>
-    </motion.div>
-  );
-}
-
 /* Individual Organizer Card Component */
 function OrganizerCard({ item, index }: { item: OrganizerItem; index: number }) {
   const shouldReduceMotion = useReducedMotion();
@@ -58,36 +41,35 @@ function OrganizerCard({ item, index }: { item: OrganizerItem; index: number }) 
       viewport={{ once: true, amount: 0.15 }}
       className="relative bg-[#FFFFFF] rounded-[24px] border border-[#E7DEC8] shadow-[0_8px_30px_rgba(15,45,37,0.03)] hover:shadow-[0_20px_50px_rgba(15,45,37,0.08)] hover:border-[#C5A880] transition-all duration-400 ease-out hover:-translate-y-1.5 p-7 sm:p-8 flex flex-col h-full group overflow-hidden"
     >
-      {/* Top Gold Accent Line on Hover */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
       {/* Large Logo Display Frame */}
-      <div className="relative w-full h-[200px] sm:h-[220px] lg:h-[230px] rounded-[18px] flex items-center justify-center p-6 sm:p-7 mb-6 transition-all duratio.14)] overflow-hidden">
+      <div className="relative w-full h-[180px] sm:h-[200px] rounded-[18px] flex items-center justify-center p-6 mb-6 overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center">
           <Image
             src={item.logo}
             alt={item.logoAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
-            className="object-contain p-1 sm:p-2 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             priority={index < 2}
           />
         </div>
       </div>
 
-      {/* Organizer Name */}
-      <h3 className="font-editorial text-[24px] sm:text-[26px] font-bold text-[#0F2D25] leading-snug tracking-tight mb-3 group-hover:text-[#09221C] transition-colors">
-        {item.name}
-      </h3>
+      {/* Number and Name row */}
+      <div className="flex items-baseline gap-3 mb-3">
+        <h3 className="font-editorial text-[22px] sm:text-[25px] font-bold text-[#0F2D25] leading-snug tracking-tight group-hover:text-[#09221C] transition-colors">
+          {item.name}
+        </h3>
+      </div>
 
       {/* Description Paragraphs */}
-      <div className="space-y-3 font-sans text-[14px] sm:text-[14.5px] leading-[1.75] text-[#243E33]/90 font-normal flex-1 mb-6">
+      <div className="space-y-3 font-sans text-[13.5px] sm:text-[14px] leading-[1.7] text-[#243E33]/90 font-normal flex-1 mb-6">
         <p>{item.paragraphs}</p>
       </div>
 
       {/* Card Footer: Action Button */}
       {item.url && (
-        <div className="pt-4 border-t border-[#0F2D25]/8 flex items-center justify-end mt-auto">
+        <div className="pt-4 flex items-center justify-end mt-auto">
           <a
             href={item.url}
             target="_blank"
@@ -107,35 +89,6 @@ export default function OrganizersSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  // Tier groupings matching your exact organizational breakdown
-  const tiers = [
-    {
-      label: "Organisers",
-      ids: ["section-infin8", "first-world-community"],
-    },
-    {
-      label: "Host Institution (Day 1)",
-      ids: ["pondicherry-university"],
-    },
-    {
-      label: "Execution Partners",
-      ids: ["DPurpose-foundation", "village-technology-school"],
-    },
-    {
-      label: "Principal Scientific Advisor to the Government of Bharat",
-      ids: ["utthan"],
-    },
-  ];
-
-  // Parallax motion for background gold sphere
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const circleY = useTransform(scrollYProgress, [0, 1], [15, -20]);
-  const ringsY = useTransform(scrollYProgress, [0, 1], [5, -10]);
-
   return (
     <section
       ref={sectionRef}
@@ -143,8 +96,7 @@ export default function OrganizersSection() {
       aria-label="Our Ecosystem Partners — Organizers"
       className="relative w-full bg-[#FAF7F0] text-[#0F2D25] py-24 sm:py-32 lg:py-40 overflow-hidden"
     >
-
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-14">
+      <div className="relative z-10 max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14">
         {/* SECTION HEADER */}
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 25 }}
@@ -164,38 +116,15 @@ export default function OrganizersSection() {
           </h2>
 
           <p className="font-sans text-[15px] sm:text-[17px] text-[#2D453B]/80 max-w-[680px] mx-auto leading-relaxed">
-            A collective of institutions and communities working together to shape Emerge Auro — from innovation and education to enterprise and social impact.
+            A collective of institutions and communities working together to shape EMERGE AURO — from innovation and education to enterprise and social impact.
           </p>
-
         </motion.div>
 
-        {/* TIERS SECTIONS */}
-        <div className="space-y-16 sm:space-y-24">
-          {tiers.map((tier, tierIdx) => {
-            const tierItems = organizersData.filter((item) =>
-              tier.ids.includes(item.id)
-            );
-
-            if (tierItems.length === 0) return null;
-
-            return (
-              <div key={tier.label} className="space-y-8">
-                <TierDivider label={tier.label} delay={tierIdx * 0.1} />
-
-                <div
-                  className={
-                    tierItems.length === 1
-                      ? "max-w-3xl mx-auto"
-                      : "grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8 items-stretch"
-                  }
-                >
-                  {tierItems.map((item, index) => (
-                    <OrganizerCard key={item.id} item={item} index={index} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+        {/* ALL ORGANIZERS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-7 lg:gap-8 items-stretch">
+          {organizersData.map((item, index) => (
+            <OrganizerCard key={item.id} item={item} index={index} />
+          ))}
         </div>
       </div>
     </section>

@@ -8,10 +8,11 @@ import OrganizingTeam from "@/components/sections/OrganizingTeam";
 import OrganizersSection from "@/components/sections/OrganizersSection";
 import VenueSection from "@/components/sections/VenueSection";
 import VideoSection from "@/components/sections/VideoSection";
-import ContactSection from "@/components/sections/ContactSection";
 import ConclaveJourney from "@/components/sections/ConclaveJourney";
 import SpeakersSection from "@/components/sections/SpeakersSection";
-import FeaturedSessions from "@/components/sections/FeaturedSessions";
+import HowToParticipate from "@/components/sections/HowToParticipate";
+import ImmersionSection from "@/components/sections/ImmersionSection";
+import SustainabilitySection from "@/components/sections/SustainabilitySection";
 import SponsorsSection from "@/components/sections/SponsorsSection";
 import Footer from "@/components/footer/Footer";
 
@@ -21,7 +22,7 @@ export default function Home() {
       {/* Floating & Sticky Luxury Navigation */}
       <Navbar />
 
-      {/* Main Content: Hero Carousel -> Event Countdown -> Stakeholders -> About -> Agenda Journey -> Speakers -> Featured Sessions -> Sponsors */}
+      {/* Main Content: Hero Carousel -> Event Countdown -> Stakeholders -> About -> Agenda Journey -> Speakers -> How to Participate -> Sponsors */}
       <main id="main-content">
         <Hero />
         <EventCountdown />
@@ -29,14 +30,15 @@ export default function Home() {
         <AboutEmerge />
         <ConclaveJourney />
         <SpeakersSection />
-        <FeaturedSessions />
+        <HowToParticipate />
+        <ImmersionSection />
+        <SustainabilitySection />
         <SponsorsSection />
         <LeadersSection />
         <OrganizingTeam />
         <OrganizersSection />
         <VenueSection />
         <VideoSection />
-        <ContactSection />
       </main>
 
       {/* Standard Multi-Column Luxury Footer */}

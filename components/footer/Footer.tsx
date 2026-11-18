@@ -79,10 +79,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#featured-sessions"
+                  href="/#participate"
                   className="text-[#073B2A]/75 hover:text-[#C89B3C] transition-colors duration-200"
                 >
-                  Featured Sessions
+                  How to Participate
                 </Link>
               </li>
             </ul>
@@ -163,7 +163,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#contact"
+                  href="/help"
+                  className="text-[#073B2A]/75 hover:text-[#C89B3C] transition-colors duration-200"
+                >
+                  Help & Travel Desk
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/help"
                   className="text-[#073B2A]/75 hover:text-[#C89B3C] transition-colors duration-200"
                 >
                   Get In Touch

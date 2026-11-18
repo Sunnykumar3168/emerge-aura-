@@ -1,3 +1,11 @@
+export interface KeyVertical {
+  id: string;
+  number: string;
+  title: string;
+  badge: string;
+  description: string;
+}
+
 export interface StoryBlock {
   number: string;
   label: string;
@@ -11,6 +19,7 @@ export interface AboutContentData {
     line2: string;
   };
   storyBlocks: StoryBlock[];
+  keyVerticals: KeyVertical[];
   floatingStatement: {
     small: string;
     medium: string;
@@ -50,17 +59,39 @@ export const aboutData: AboutContentData = {
       paragraph:
         "The hardest problems on the planet are being worked on right now by founders. Climate breakdown, food insecurity, broken health systems, polluted oceans, fractured communities. EMERGE exists to give those founders what they most lack: capital, connections, and a room where the people holding the cheque book already believe in the premise.",
     },
+  ],
+  keyVerticals: [
     {
-      number: "03",
-      label: "THE EXPERIENCE",
-      paragraph:
-        "The conclave opens on 28 October at Pondicherry University, setting the stage for high-level engagements before moving to Bharat Nivas, Auroville. Over the following two days, the event will feature a startup showcase, investor deal lounge, founder masterclasses, and dedicated RDI Fund and policy clinics, creating opportunities for collaboration, investment, and innovation-led partnerships.",
+      id: "psa",
+      number: "01",
+      title: "Office of the PSA",
+      badge: "PSA",
+      description:
+        "Learn about the programmes and initiatives of the Office of the Principal Scientific Adviser, and how founders, institutions and industry can engage with them.",
     },
     {
+      id: "b2b",
+      number: "02",
+      title: "B2B Networking",
+      badge: "B2B",
+      description:
+        "Structured round-table rotations that match startups and MSMEs with corporates and buyers. Built for business conversations, not just card exchanges.",
+    },
+    {
+      id: "csr-consulates",
+      number: "03",
+      title: "CSR and Consulates",
+      badge: "CSR & Consulates",
+      description:
+        "CSR heads and consulate representatives meet incubators, impact startups and institutions in focused round tables, working towards project sanctions and MoUs.",
+    },
+    {
+      id: "startups",
       number: "04",
-      label: "THE PURPOSE",
-      paragraph:
-        "Not an expo. Not a pitch competition. A working laboratory of conscious commerce, built to produce commitments that outlast the weekend.",
+      title: "Startups Pitching and Showcase",
+      badge: "Startups & Showcase",
+      description:
+        "Startups exhibit at the Startup Showcase, and shortlisted teams pitch to investors at PitchFest. Visibility, investor access and connections across two days.",
     },
   ],
   floatingStatement: {

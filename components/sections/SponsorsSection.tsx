@@ -1,236 +1,184 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
-import { Handshake, Leaf, Users, Globe2, ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
-import SponsorModal from "@/components/ui/SponsorModal";
+import { useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  animate,
+} from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { sponsorLogos, SponsorLogoItem } from "@/data/sponsors";
+
+const EASE_CUBIC: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+function SponsorCard({ logo }: { logo: SponsorLogoItem }) {
+  return (
+    <div className="group relative w-[240px] sm:w-[280px] h-[160px] sm:h-[180px] bg-white/95 rounded-[20px] border border-[#063522]/10 shadow-[0_8px_30px_rgba(6,53,34,0.06)] hover:shadow-[0_16px_40px_rgba(6,53,34,0.14)] hover:border-[#063522]/30 hover:-translate-y-1 transition-all duration-300 p-5 flex flex-col items-center justify-between shrink-0 select-none backdrop-blur-sm">
+
+      {/* Logo container */}
+      <div className="relative w-full flex-1 flex items-center justify-center my-2">
+        <Image
+          src={logo.src}
+          alt={logo.alt}
+          fill
+          sizes="280px"
+          className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function SponsorsSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
+  const x = useMotionValue(0);
+  const isHovered = useRef(false);
+  const isAnimating = useRef(false);
+
+  // Layout math for seamless continuous loop
+  const cardWidth = 280;
+  const gap = 24;
+  const itemWidth = cardWidth + gap;
+  const totalItems = sponsorLogos.length;
+  const contentWidth = itemWidth * totalItems;
+  const speed = 40; // px per second
+
+  // Repeat logos 3 times for seamless wrapping
+  const duplicatedSponsors = [...sponsorLogos, ...sponsorLogos, ...sponsorLogos];
+
+  // Infinite scroll loop
+  useAnimationFrame((_, delta) => {
+    if (isHovered.current || isAnimating.current) return;
+
+    let currentX = x.get() - speed * (delta / 1000);
+    if (currentX <= -contentWidth) {
+      currentX += contentWidth;
+    }
+    x.set(currentX);
   });
 
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [-25, 25]);
+  const handlePrev = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
 
-  // Entrance animations
-  const fadeUpVariant = (delay: number) => ({
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-    },
-  });
+    let currentX = x.get();
+    const jumpAmount = itemWidth * 2;
 
-  const fadeVariant = (delay: number) => ({
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 1, delay, ease: "easeInOut" as const },
-    },
-  });
+    if (currentX + jumpAmount > 0) {
+      currentX -= contentWidth;
+      x.set(currentX);
+    }
 
-  const scaleVariant = (delay: number) => ({
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-    },
-  });
+    animate(x, currentX + jumpAmount, {
+      type: "tween",
+      duration: 0.65,
+      ease: EASE_CUBIC,
+      onComplete: () => {
+        isAnimating.current = false;
+      },
+    });
+  };
+
+  const handleNext = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
+
+    let currentX = x.get();
+    const jumpAmount = itemWidth * 2;
+
+    if (currentX - jumpAmount < -contentWidth) {
+      currentX += contentWidth;
+      x.set(currentX);
+    }
+
+    animate(x, currentX - jumpAmount, {
+      type: "tween",
+      duration: 0.65,
+      ease: EASE_CUBIC,
+      onComplete: () => {
+        isAnimating.current = false;
+      },
+    });
+  };
 
   return (
-    <>
-      <section
-        ref={sectionRef}
-        id="sponsors"
-        aria-label="Our Sponsors"
-        className="relative w-full bg-[#F5CB62] text-[#063522] py-20 sm:py-28 lg:py-36 overflow-hidden select-none min-h-[750px] flex items-center"
-      >
-        {/* ========================================================
-            1. SECTION BACKGROUND (Depth, Texture, Arcs, Gradient)
-            ======================================================== */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#F6D378] via-[#F5CB62] to-[#E3B84A] z-0" />
-        
-        <div
-          className="absolute inset-0 z-0 opacity-[0.06] mix-blend-multiply pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        <div className="absolute top-1/4 left-1/4 w-[1000px] h-[1000px] bg-white/10 rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#D4A33B]/20 rounded-full blur-[120px] pointer-events-none z-0" />
+    <section
+      id="sponsors"
+      aria-label="Our Sponsors & Enablers"
+      className="relative w-full bg-[#F5CB62] text-[#063522] py-20 sm:py-28 overflow-hidden select-none"
+    >
+      {/* Background radial gradient & noise */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#F6D378] via-[#F5CB62] to-[#E3B84A] z-0" />
+      <div
+        className="absolute inset-0 z-0 opacity-[0.06] mix-blend-multiply pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-white/15 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#D4A33B]/25 rounded-full blur-[120px] pointer-events-none z-0" />
 
-        {/* ========================================================
-            MAIN CONTENT CONTAINER
-            ======================================================== */}
-        <div className="relative z-20 max-w-[1700px] mx-auto px-6 sm:px-10 lg:px-12 w-full">
-          {/* Core Layout: Tightened gap from lg:gap-6 to lg:gap-12 and changed justification */}
-          <div className="flex flex-col lg:flex-row items-center lg:justify-around">
-            
-            {/* ========================================================
-                LEFT: LARGE EDITORIAL CONTENT
-                ======================================================== */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left z-20 lg:pt-10 shrink-0">
-              
-              {/* Top Eyebrow */}
-              <motion.div
-                variants={fadeUpVariant(0.0)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="flex items-center gap-4 mb-8"
-              >
-                <span className="text-[13px] font-sans font-semibold tracking-[0.25em] text-[#6B4A16] uppercase">
-                  PARTNER FOR IMPACT
-                </span>
-              </motion.div>
-
-              {/* Main Heading */}
-              <motion.h2
-                variants={fadeUpVariant(0.1)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="font-editorial text-[72px] sm:text-[96px] lg:text-[116px] font-medium leading-[0.9] text-[#063522] tracking-tight mb-8"
-              >
-                Our Enablers
-              </motion.h2>
-
-              {/* Subtitle */}
-              <motion.p
-                variants={fadeUpVariant(0.2)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="font-sans text-[20px] sm:text-[24px] text-[#063522]/90 font-normal leading-[1.5] max-w-[500px] mb-16"
-              >
-                Thanks to the organisations that make this event possible
-              </motion.p>
-
-              {/* Three Supporting Points */}
-              <div className="flex flex-col md:flex-row items-start justify-center lg:justify-start gap-10 sm:gap-6 lg:gap-8 w-full max-w-[800px]">
-                
-                {/* Point 1 */}
-                <motion.div
-                  variants={fadeUpVariant(0.3)}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group md:w-[200px]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
-                    <Leaf className="w-5 h-5 text-[#063522] stroke-[1.5]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <h4 className="font-sans text-[15px] lg:text-[16px] font-bold text-[#063522] mb-1.5">
-                      Shared Vision
-                    </h4>
-                    <p className="font-sans text-[13px] text-[#063522]/75 leading-relaxed">
-                      Organizations committed to a better tomorrow.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <div className="hidden sm:block w-[1px] h-16 bg-[#9A7B32]/30" />
-
-                {/* Point 2 */}
-                <motion.div
-                  variants={fadeUpVariant(0.4)}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group md:w-[200px]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
-                    <Users className="w-5 h-5 text-[#063522] stroke-[1.5]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <h4 className="font-sans text-[15px] lg:text-[16px] font-bold text-[#063522] mb-1.5">
-                      Collective Action
-                    </h4>
-                    <p className="font-sans text-[13px] text-[#063522]/75 leading-relaxed">
-                      Partners driving meaningful change.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <div className="hidden sm:block w-[1px] h-16 bg-[#9A7B32]/30" />
-
-                {/* Point 3 */}
-                <motion.div
-                  variants={fadeUpVariant(0.5)}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5 group md:w-[200px]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#FAF5E6]/80 flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(107,74,22,0.1)] border border-[#9A7B32]/30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFF] group-hover:border-[#9A7B32]/50">
-                    <Globe2 className="w-5 h-5 text-[#063522] stroke-[1.5]" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <h4 className="font-sans text-[15px] lg:text-[16px] font-bold text-[#063522] mb-1.5">
-                      Lasting Impact
-                    </h4>
-                    <p className="font-sans text-[13px] text-[#063522]/75 leading-relaxed">
-                      Support for a more conscious and inclusive world.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
+      {/* Header Container */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mb-12 sm:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#063522]/15">
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-[12px] font-sans font-bold tracking-[0.24em] text-[#6B4A16] uppercase">
+                PARTNER FOR IMPACT
+              </span>
             </div>
+            <h2 className="font-editorial text-[48px] sm:text-[64px] lg:text-[76px] font-medium leading-[0.95] text-[#063522] tracking-tight">
+              Our Enablers
+            </h2>
+            <p className="font-sans text-[16px] sm:text-[18px] text-[#063522]/80 font-normal mt-3 max-w-[540px]">
+              Thanks to the visionary organisations and partners that make EMERGE AURO possible.
+            </p>
+          </div>
 
-            {/* ========================================================
-                CENTRAL: LARGE HANDSHAKE & CTAs
-                ======================================================== */}
-            <div className="flex flex-col items-center justify-center relative z-20 shrink-0 mt-10 lg:mt-0 lg:pt-16">
-              
-              {/* Handshake */}
-              <motion.div
-                variants={scaleVariant(0.35)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-[#FAF5E6] shadow-[0_20px_50px_rgba(107,74,22,0.2)] flex items-center justify-center border border-[#9A7B32]/25 z-10 hover:scale-105 transition-transform duration-500"
-              >
-                <Handshake className="w-16 h-16 sm:w-20 sm:h-20 text-[#063522] stroke-[1.0]" />
-                <div className="absolute inset-2 sm:inset-3 rounded-full border border-[#9A7B32]/15" />
-              </motion.div>
-
-              {/* Buttons Below Handshake */}
-              <motion.div
-                variants={fadeUpVariant(0.6)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-col gap-5 mt-16 w-full max-w-[400px] relative z-20"
-              >
-                <Link
-                  href="/sponsors"
-                  className="group relative flex items-center justify-center w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-[#063522] text-[#F5CB62] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase shadow-lg border border-[#063522] hover:bg-[#08452d] hover:border-[#F5CB62]/50 hover:-translate-y-[2px] transition-all duration-400"
-                >
-                  <span>VIEW Enablers</span>
-                </Link>
-                
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="group relative flex items-center justify-center w-full h-[58px] sm:h-[64px] px-8 rounded-xl bg-transparent text-[#063522] font-sans text-[13px] font-semibold tracking-[0.15em] uppercase border border-[#063522] hover:bg-[#063522]/5 hover:-translate-y-[2px] transition-all duration-400"
-                >
-                  <span>BECOME A Enabler</span>
-                </button>
-              </motion.div>
-            </div>           
+          {/* Navigation Arrows */}
+          <div className="flex items-center gap-3 self-end md:self-auto">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous sponsors"
+              className="w-11 h-11 rounded-full border border-[#063522]/20 flex items-center justify-center text-[#063522] hover:bg-[#063522] hover:text-[#F5CB62] hover:border-[#063522] transition-colors duration-200"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Next sponsors"
+              className="w-11 h-11 rounded-full border border-[#063522]/20 flex items-center justify-center text-[#063522] hover:bg-[#063522] hover:text-[#F5CB62] hover:border-[#063522] transition-colors duration-200"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Sponsor Modal */}
-      <SponsorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </>
+      {/* Horizontal Infinite Scroll Carousel */}
+      <div
+        className="relative w-full z-10 cursor-grab active:cursor-grabbing overflow-hidden py-4"
+        onMouseEnter={() => {
+          isHovered.current = true;
+        }}
+        onMouseLeave={() => {
+          isHovered.current = false;
+        }}
+      >
+        {/* Soft edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#F5CB62] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#F5CB62] to-transparent z-20 pointer-events-none" />
+
+        <motion.div
+          style={{ x }}
+          className="flex gap-6 items-center px-4"
+        >
+          {duplicatedSponsors.map((logo, idx) => (
+            <SponsorCard key={`${logo.id}-${idx}`} logo={logo} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }
