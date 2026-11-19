@@ -9,9 +9,11 @@ import OrganizersSection from "@/components/sections/OrganizersSection";
 import VenueSection from "@/components/sections/VenueSection";
 import VideoSection from "@/components/sections/VideoSection";
 import ConclaveJourney from "@/components/sections/ConclaveJourney";
+import RhythmBandSection from "@/components/sections/RhythmBandSection";
 import SpeakersSection from "@/components/sections/SpeakersSection";
 import HowToParticipate from "@/components/sections/HowToParticipate";
 import ImmersionSection from "@/components/sections/ImmersionSection";
+import ConsciousChoice from "@/components/sections/ConsciousChoice";
 import SustainabilitySection from "@/components/sections/SustainabilitySection";
 import SponsorsSection from "@/components/sections/SponsorsSection";
 import Footer from "@/components/footer/Footer";
@@ -29,9 +31,11 @@ export default function Home() {
         <StakeholderSection />
         <AboutEmerge />
         <ConclaveJourney />
+        <RhythmBandSection />
         <SpeakersSection />
         <HowToParticipate />
         <ImmersionSection />
+        <ConsciousChoice />
         <SustainabilitySection />
         <SponsorsSection />
         <LeadersSection />

@@ -31,7 +31,7 @@ export const sponsorLogos: SponsorLogoItem[] = [
   {
     id: "beggers-corp",
     name: "Beggars Corporation",
-    src: "/sponsers/beggers corporation.jpeg",
+    src: "/sponsers/beggers corporation.jpeg.png",
     alt: "Beggars Corporation",
     tier: "Ecosystem Partner",
   },
@@ -73,7 +73,7 @@ export const sponsorLogos: SponsorLogoItem[] = [
   {
     id: "next-bharat",
     name: "Next Bharat",
-    src: "/sponsers/next-bharat.webp",
+    src: "/sponsers/next-bharat.png",
     alt: "Next Bharat",
     tier: "Ecosystem Partner",
   },

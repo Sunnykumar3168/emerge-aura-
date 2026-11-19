@@ -12,6 +12,7 @@ import {
   Info,
   Calendar,
   MapPin,
+  Star,
 } from "lucide-react";
 import {
   participateData,
@@ -161,9 +162,11 @@ export default function HowToParticipate() {
                 </p>
               </div>
 
-              {/* Passes Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              {/* Passes Cards Grid (Exact Design from Image 2) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pt-6 sm:pt-8">
                 {passes.map((pass: PassItem, idx: number) => {
+                  const isPop = pass.isPopular;
+
                   return (
                     <motion.div
                       key={pass.id}
@@ -171,81 +174,125 @@ export default function HowToParticipate() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      className={`relative rounded-[22px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
-                        pass.isPopular
-                          ? "bg-gradient-to-b from-[#073D29] via-[#04281A] to-[#021F14] border-2 border-[#C9A15B] shadow-[0_16px_45px_rgba(201,161,91,0.22)] scale-[1.02] md:scale-105 z-20"
-                          : "bg-[#06291C]/75 hover:bg-[#06291C]/95 border border-[#C9A15B]/25 hover:border-[#C9A15B]/50 shadow-[0_12px_36px_rgba(0,0,0,0.35)]"
+                      className={`relative rounded-[28px] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
+                        isPop
+                          ? "bg-gradient-to-b from-[#FFFDF8] via-[#FFF9EE] to-[#FCF4E3] border-2 border-[#ECC980] shadow-[0_18px_50px_rgba(0,0,0,0.35)] scale-[1.02] md:scale-105 z-20"
+                          : "bg-white border border-[#E3D9C3] hover:border-[#C9A15B]/60 shadow-[0_14px_38px_rgba(0,0,0,0.22)] hover:-translate-y-1"
                       }`}
                     >
-                      {/* Popular Ribbon Badge */}
-                      {pass.badge && (
-                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                          <span
-                            className={`inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10.5px] font-sans font-bold tracking-widest uppercase shadow-md ${
-                              pass.isPopular
-                                ? "bg-[#C9A15B] text-[#032D1D]"
-                                : "bg-[#042015] border border-[#C9A15B]/40 text-[#C9A15B]"
-                            }`}
+                      {/* Inner Overflow Container for Corner Watercolor Waves */}
+                      <div className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none">
+                        <svg
+                          viewBox="0 0 160 160"
+                          className="absolute top-0 right-0 w-36 h-36 pointer-events-none rounded-tr-[28px] overflow-hidden select-none"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M40 0C65 45 110 40 160 85V0H40Z"
+                            fill={isPop ? "#F5E6C7" : "#E3ECE6"}
+                            fillOpacity={isPop ? "0.65" : "0.8"}
+                          />
+                          <path
+                            d="M0 0C35 25 80 75 160 120V0H0Z"
+                            fill={isPop ? "#F9EED9" : "#EDF3EF"}
+                            fillOpacity={isPop ? "0.45" : "0.6"}
+                          />
+                        </svg>
+
+                        {!isPop && (
+                          <svg
+                            viewBox="0 0 120 120"
+                            className="absolute bottom-0 left-0 w-28 h-28 pointer-events-none rounded-bl-[28px] overflow-hidden select-none"
+                            fill="none"
+                            aria-hidden="true"
                           >
-                            {pass.isPopular && <Sparkles className="w-3 h-3" />}
-                            <span>{pass.badge}</span>
+                            <path
+                              d="M0 65C35 65 55 90 65 120H0V65Z"
+                              fill="#EDF3EF"
+                              fillOpacity="0.65"
+                            />
+                          </svg>
+                        )}
+                      </div>
+
+                      {/* Popular Floating Gold Ribbon Badge - Fully Visible */}
+                      {isPop && (
+                        <div className="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 z-30">
+                          <span className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-1.5 rounded-full bg-gradient-to-r from-[#DFB76C] via-[#ECC980] to-[#DFB76C] text-[#3D2905] text-[10.5px] sm:text-[11px] font-sans font-bold tracking-[0.16em] uppercase shadow-md border border-[#F5DC9C] whitespace-nowrap">
+                            <Star className="w-3 h-3 fill-[#3D2905] text-[#3D2905]" />
+                            <span>MOST POPULAR</span>
                           </span>
                         </div>
                       )}
 
-                      <div>
+                      <div className="relative z-10">
+                        {/* Top Pill Badge (for non-popular cards, e.g. OPEN ACCESS / FOR FOUNDERS) */}
+                        {!isPop && pass.badge ? (
+                          <div className="mb-3">
+                            <span className="inline-block px-3.5 py-1 rounded-full bg-[#EBF0EC] text-[#244234] text-[10px] sm:text-[10.5px] font-sans font-bold tracking-[0.18em] uppercase">
+                              {pass.badge}
+                            </span>
+                          </div>
+                        ) : (
+                          <div className={isPop ? "h-6" : ""} />
+                        )}
+
                         {/* Pass Title */}
-                        <div className="pt-2">
-                          <h4 className="font-editorial text-2xl sm:text-[28px] text-[#F4EFE6] font-normal leading-tight">
-                            {pass.name}
-                          </h4>
-                          <span className="text-[11.5px] font-sans text-[#C9A15B] tracking-wider uppercase font-medium mt-1 block">
-                            {pass.period}
-                          </span>
-                        </div>
+                        <h4 className="font-editorial text-[30px] sm:text-[34px] lg:text-[36px] text-[#10251D] font-normal leading-[1.1] tracking-tight">
+                          {pass.name}
+                        </h4>
+
+                        {/* Subtitle / Period */}
+                        <span className="text-[11px] font-sans text-[#5A6D61] tracking-[0.22em] uppercase font-semibold block mt-1.5 mb-3.5">
+                          {pass.period}
+                        </span>
+
+                        {/* Gold Accent Line */}
+                        <div className="w-12 h-[1.5px] bg-[#C9A15B] mb-5" />
 
                         {/* Price Block */}
-                        <div className="my-5 pb-5 border-b border-white/10">
-                          <div className="flex items-baseline gap-1">
-                            <span className="font-editorial text-4xl sm:text-5xl text-[#F4EFE6] font-medium tracking-tight">
-                              {pass.price}
+                        <div className="flex items-baseline gap-1.5 mb-3.5">
+                          <span className="font-editorial text-[42px] sm:text-[46px] lg:text-[50px] text-[#073B2A] font-medium leading-none tracking-tight">
+                            {pass.price}
+                          </span>
+                          {pass.price !== "Free" && (
+                            <span className="text-xs sm:text-[13px] text-[#5A6D61] font-sans font-normal">
+                              / delegate
                             </span>
-                            {pass.price !== "Free" && (
-                              <span className="text-xs text-[#E5DED2]/70 font-sans">
-                                / delegate
-                              </span>
-                            )}
-                          </div>
-                          <p className="font-sans text-xs sm:text-[13px] text-[#E5DED2]/80 leading-relaxed mt-2.5">
-                            {pass.description}
-                          </p>
+                          )}
                         </div>
 
-                        {/* Includes Feature List */}
-                        <div className="space-y-3 mb-6">
-                          <span className="text-[10px] font-sans font-semibold tracking-[0.18em] text-[#C9A15B] uppercase block">
+                        {/* Description */}
+                        <p className="font-sans text-[13px] sm:text-[13.5px] text-[#42544A] leading-relaxed mb-6 min-h-[42px]">
+                          {pass.description}
+                        </p>
+
+                        {/* Features List */}
+                        <div className="space-y-3 mb-8">
+                          <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-[#5A6D61] uppercase block">
                             WHAT&apos;S INCLUDED
                           </span>
-                          <ul className="space-y-2.5">
+                          <ul className="space-y-3">
                             {pass.features.map((feat, fIdx) => (
                               <li
                                 key={fIdx}
-                                className="flex items-start gap-2.5 text-xs sm:text-[13px] leading-snug"
+                                className="flex items-start gap-3 text-xs sm:text-[13px] leading-snug"
                               >
                                 {feat.included ? (
-                                  <div className="w-4 h-4 rounded-full bg-[#C9A15B]/20 border border-[#C9A15B]/60 flex items-center justify-center shrink-0 mt-0.5 text-[#C9A15B]">
-                                    <Check className="w-2.5 h-2.5" />
+                                  <div className="w-4 h-4 rounded-full bg-[#073B2A] flex items-center justify-center shrink-0 mt-0.5 text-white shadow-xs">
+                                    <Check className="w-2.5 h-2.5 stroke-[3]" />
                                   </div>
                                 ) : (
-                                  <div className="w-4 h-4 rounded-full bg-white/5 border border-white/20 flex items-center justify-center shrink-0 mt-0.5 text-white/40">
-                                    <X className="w-2.5 h-2.5" />
+                                  <div className="w-4 h-4 rounded-full bg-[#E5EAE7] flex items-center justify-center shrink-0 mt-0.5 text-[#8C9891]">
+                                    <X className="w-2.5 h-2.5 stroke-[2.5]" />
                                   </div>
                                 )}
                                 <span
                                   className={
                                     feat.included
-                                      ? "text-[#F4EFE6]/90"
-                                      : "text-[#E5DED2]/40 line-through"
+                                      ? "text-[#1E3027] font-normal"
+                                      : "text-[#8C9891]"
                                   }
                                 >
                                   {feat.text}
@@ -257,19 +304,21 @@ export default function HowToParticipate() {
                       </div>
 
                       {/* CTA Button */}
-                      <a
-                        href={pass.ctaHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-sans text-xs tracking-[0.18em] uppercase font-semibold transition-all duration-300 mt-2 ${
-                          pass.isPopular
-                            ? "bg-[#C9A15B] text-[#032D1D] hover:bg-[#D8B56A] shadow-[0_4px_16px_rgba(201,161,91,0.3)]"
-                            : "bg-transparent text-[#F4EFE6] border border-[#C9A15B]/60 hover:bg-[#C9A15B] hover:text-[#032D1D]"
-                        }`}
-                      >
-                        <span>{pass.ctaText}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
+                      <div className="relative z-10 pt-2">
+                        <a
+                          href={pass.ctaHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-full inline-flex items-center justify-center gap-2 rounded-full font-sans text-xs tracking-[0.16em] uppercase font-semibold transition-all duration-300 ${
+                            isPop
+                              ? "py-3.5 px-6 bg-[#073B2A] hover:bg-[#042017] text-[#FAF8F2] shadow-[0_4px_16px_rgba(7,59,42,0.3)] hover:shadow-[0_6px_22px_rgba(7,59,42,0.4)] hover:-translate-y-0.5"
+                              : "py-3 px-6 bg-white hover:bg-[#073B2A] text-[#10251D] hover:text-[#FAF8F2] border border-[#10251D]/25 hover:border-[#073B2A] shadow-xs hover:-translate-y-0.5"
+                          }`}
+                        >
+                          <span>{pass.ctaText}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
                     </motion.div>
                   );
                 })}
@@ -306,9 +355,11 @@ export default function HowToParticipate() {
                 </p>
               </div>
 
-              {/* Stalls Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              {/* Stalls Cards Grid (Matching White Luxury Design) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pt-6 sm:pt-8">
                 {stalls.map((stall: StallItem, idx: number) => {
+                  const isPop = stall.isPopular;
+
                   return (
                     <motion.div
                       key={stall.id}
@@ -316,71 +367,114 @@ export default function HowToParticipate() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      className={`relative rounded-[22px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
-                        stall.isPopular
-                          ? "bg-gradient-to-b from-[#073D29] via-[#04281A] to-[#021F14] border-2 border-[#C9A15B] shadow-[0_16px_45px_rgba(201,161,91,0.22)] scale-[1.02] md:scale-105 z-20"
-                          : "bg-[#06291C]/75 hover:bg-[#06291C]/95 border border-[#C9A15B]/25 hover:border-[#C9A15B]/50 shadow-[0_12px_36px_rgba(0,0,0,0.35)]"
+                      className={`relative rounded-[28px] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
+                        isPop
+                          ? "bg-gradient-to-b from-[#FFFDF8] via-[#FFF9EE] to-[#FCF4E3] border-2 border-[#ECC980] shadow-[0_18px_50px_rgba(0,0,0,0.35)] scale-[1.02] md:scale-105 z-20"
+                          : "bg-white border border-[#E3D9C3] hover:border-[#C9A15B]/60 shadow-[0_14px_38px_rgba(0,0,0,0.22)] hover:-translate-y-1"
                       }`}
                     >
-                      {/* Dimensions / Premier Badge */}
-                      {stall.badge && (
-                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                          <span
-                            className={`inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10.5px] font-sans font-bold tracking-widest uppercase shadow-md ${
-                              stall.isPopular
-                                ? "bg-[#C9A15B] text-[#032D1D]"
-                                : "bg-[#042015] border border-[#C9A15B]/40 text-[#C9A15B]"
-                            }`}
+                      {/* Inner Overflow Container for Corner Watercolor Waves */}
+                      <div className="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none">
+                        <svg
+                          viewBox="0 0 160 160"
+                          className="absolute top-0 right-0 w-36 h-36 pointer-events-none rounded-tr-[28px] overflow-hidden select-none"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M40 0C65 45 110 40 160 85V0H40Z"
+                            fill={isPop ? "#F5E6C7" : "#E3ECE6"}
+                            fillOpacity={isPop ? "0.65" : "0.8"}
+                          />
+                          <path
+                            d="M0 0C35 25 80 75 160 120V0H0Z"
+                            fill={isPop ? "#F9EED9" : "#EDF3EF"}
+                            fillOpacity={isPop ? "0.45" : "0.6"}
+                          />
+                        </svg>
+
+                        {!isPop && (
+                          <svg
+                            viewBox="0 0 120 120"
+                            className="absolute bottom-0 left-0 w-28 h-28 pointer-events-none rounded-bl-[28px] overflow-hidden select-none"
+                            fill="none"
+                            aria-hidden="true"
                           >
-                            <span>{stall.badge}</span>
+                            <path
+                              d="M0 65C35 65 55 90 65 120H0V65Z"
+                              fill="#EDF3EF"
+                              fillOpacity="0.65"
+                            />
+                          </svg>
+                        )}
+                      </div>
+
+                      {/* Popular Floating Gold Ribbon Badge - Fully Visible */}
+                      {isPop && (
+                        <div className="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 z-30">
+                          <span className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-1.5 rounded-full bg-gradient-to-r from-[#DFB76C] via-[#ECC980] to-[#DFB76C] text-[#3D2905] text-[10.5px] sm:text-[11px] font-sans font-bold tracking-[0.16em] uppercase shadow-md border border-[#F5DC9C] whitespace-nowrap">
+                            <Star className="w-3 h-3 fill-[#3D2905] text-[#3D2905]" />
+                            <span>MOST POPULAR</span>
                           </span>
                         </div>
                       )}
 
-                      <div>
-                        {/* Stall Title & Dimensions */}
-                        <div className="pt-2">
-                          <div className="flex items-start justify-between gap-2">
-                            <h4 className="font-editorial text-2xl sm:text-[28px] text-[#F4EFE6] font-normal leading-tight">
-                              {stall.name}
-                            </h4>
-                            <span className="px-2.5 py-0.5 rounded bg-[#C9A15B]/15 border border-[#C9A15B]/30 text-[#C9A15B] text-[11px] font-mono font-medium shrink-0">
-                              {stall.dimensions}
+                      <div className="relative z-10">
+                        {/* Top Row: Badge & Dimensions */}
+                        <div className="flex items-center justify-between gap-2 mb-3">
+                          {!isPop && stall.badge ? (
+                            <span className="inline-block px-3.5 py-1 rounded-full bg-[#EBF0EC] text-[#244234] text-[10px] sm:text-[10.5px] font-sans font-bold tracking-[0.18em] uppercase">
+                              {stall.badge}
                             </span>
-                          </div>
-                          <span className="text-[11.5px] font-sans text-[#C9A15B] tracking-wider uppercase font-medium mt-1 block">
-                            {stall.period}
+                          ) : (
+                            <div className={isPop ? "h-6" : ""} />
+                          )}
+                          <span className="px-2.5 py-0.5 rounded-full bg-[#EBF0EC] text-[#244234] text-[10.5px] font-mono font-medium">
+                            {stall.dimensions}
                           </span>
                         </div>
+
+                        {/* Stall Title */}
+                        <h4 className="font-editorial text-[30px] sm:text-[34px] lg:text-[36px] text-[#10251D] font-normal leading-[1.1] tracking-tight">
+                          {stall.name}
+                        </h4>
+
+                        {/* Subtitle / Period */}
+                        <span className="text-[11px] font-sans text-[#5A6D61] tracking-[0.22em] uppercase font-semibold block mt-1.5 mb-3.5">
+                          {stall.period}
+                        </span>
+
+                        {/* Gold Accent Line */}
+                        <div className="w-12 h-[1.5px] bg-[#C9A15B] mb-5" />
 
                         {/* Price Block */}
-                        <div className="my-5 pb-5 border-b border-white/10">
-                          <div className="flex items-baseline gap-1.5">
-                            <span className="font-editorial text-4xl sm:text-5xl text-[#F4EFE6] font-medium tracking-tight">
-                              {stall.price}
-                            </span>
-                            <span className="text-xs text-[#E5DED2]/60 font-sans">
-                              (exclusive of GST)
-                            </span>
-                          </div>
-                          <p className="font-sans text-xs sm:text-[13px] text-[#E5DED2]/80 leading-relaxed mt-2.5">
-                            {stall.description}
-                          </p>
+                        <div className="flex items-baseline gap-1.5 mb-3.5">
+                          <span className="font-editorial text-[42px] sm:text-[46px] lg:text-[50px] text-[#073B2A] font-medium leading-none tracking-tight">
+                            {stall.price}
+                          </span>
+                          <span className="text-xs text-[#5A6D61] font-sans">
+                            (exclusive of GST)
+                          </span>
                         </div>
 
+                        {/* Description */}
+                        <p className="font-sans text-[13px] sm:text-[13.5px] text-[#42544A] leading-relaxed mb-6 min-h-[42px]">
+                          {stall.description}
+                        </p>
+
                         {/* Features List */}
-                        <div className="space-y-3 mb-6">
-                          <span className="text-[10px] font-sans font-semibold tracking-[0.18em] text-[#C9A15B] uppercase block">
+                        <div className="space-y-3 mb-8">
+                          <span className="text-[10px] font-sans font-bold tracking-[0.2em] text-[#5A6D61] uppercase block">
                             STALL PROVISIONS
                           </span>
-                          <ul className="space-y-2.5">
+                          <ul className="space-y-3">
                             {stall.features.map((feat, fIdx) => (
                               <li
                                 key={fIdx}
-                                className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#F4EFE6]/90 leading-snug"
+                                className="flex items-start gap-3 text-xs sm:text-[13px] text-[#1E3027] font-normal leading-snug"
                               >
-                                <div className="w-4 h-4 rounded-full bg-[#C9A15B]/20 border border-[#C9A15B]/60 flex items-center justify-center shrink-0 mt-0.5 text-[#C9A15B]">
-                                  <Check className="w-2.5 h-2.5" />
+                                <div className="w-4 h-4 rounded-full bg-[#073B2A] flex items-center justify-center shrink-0 mt-0.5 text-white shadow-xs">
+                                  <Check className="w-2.5 h-2.5 stroke-[3]" />
                                 </div>
                                 <span>{feat.text}</span>
                               </li>
@@ -390,19 +484,21 @@ export default function HowToParticipate() {
                       </div>
 
                       {/* CTA Button */}
-                      <a
-                        href={stall.ctaHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-sans text-xs tracking-[0.18em] uppercase font-semibold transition-all duration-300 mt-2 ${
-                          stall.isPopular
-                            ? "bg-[#C9A15B] text-[#032D1D] hover:bg-[#D8B56A] shadow-[0_4px_16px_rgba(201,161,91,0.3)]"
-                            : "bg-transparent text-[#F4EFE6] border border-[#C9A15B]/60 hover:bg-[#C9A15B] hover:text-[#032D1D]"
-                        }`}
-                      >
-                        <span>{stall.ctaText}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
+                      <div className="relative z-10 pt-2">
+                        <a
+                          href={stall.ctaHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-full inline-flex items-center justify-center gap-2 rounded-full font-sans text-xs tracking-[0.16em] uppercase font-semibold transition-all duration-300 ${
+                            isPop
+                              ? "py-3.5 px-6 bg-[#073B2A] hover:bg-[#042017] text-[#FAF8F2] shadow-[0_4px_16px_rgba(7,59,42,0.3)] hover:shadow-[0_6px_22px_rgba(7,59,42,0.4)] hover:-translate-y-0.5"
+                              : "py-3 px-6 bg-white hover:bg-[#073B2A] text-[#10251D] hover:text-[#FAF8F2] border border-[#10251D]/25 hover:border-[#073B2A] shadow-xs hover:-translate-y-0.5"
+                          }`}
+                        >
+                          <span>{stall.ctaText}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
                     </motion.div>
                   );
                 })}

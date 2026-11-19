@@ -49,7 +49,7 @@ function OrganizerCard({ item, index }: { item: OrganizerItem; index: number }) 
             alt={item.logoAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
-            className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+            className="object-contain p-2 rounded-xl transition-transform duration-500 ease-out group-hover:scale-[1.04]"
             priority={index < 2}
           />
         </div>

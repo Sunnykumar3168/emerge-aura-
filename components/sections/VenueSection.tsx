@@ -11,12 +11,15 @@ import {
   Check,
   Calendar,
   Sparkles,
+  Maximize2,
+  X,
 } from "lucide-react";
 import { venuesData } from "@/data/venues";
 
 export default function VenueSection() {
   const [selectedVenueId, setSelectedVenueId] = useState("bharat-nivas");
   const [copied, setCopied] = useState(false);
+  const [isBlueprintModalOpen, setIsBlueprintModalOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
@@ -198,47 +201,120 @@ export default function VenueSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Interactive Map Embed with Luxury Overlays */}
-          <div className="flex-1 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[520px] bg-[#EBE7DF] overflow-hidden">
-            {/* Live Interactive Google Maps Embed */}
-            <iframe
-              title={`Map of ${activeVenue.name}`}
-              src={activeVenue.mapEmbedUrl}
-              className="w-full h-full min-h-[380px] lg:min-h-[520px] border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+          {/* RIGHT COLUMN: Venue Blueprint & Directions Button (Google Map Removed) */}
+          <div className="flex-1 relative min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] bg-[#0E1F17] flex flex-col justify-between overflow-hidden group">
+            {/* Blueprint Header Bar: Title Badge & Get Directions Button */}
+            <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between gap-3 pointer-events-none">
+              <div className="pointer-events-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#063522]/90 backdrop-blur-md text-[#F5CB62] text-[11px] sm:text-xs font-semibold tracking-wider uppercase shadow-md border border-[#F5CB62]/20">
+                <Sparkles className="w-3.5 h-3.5 text-[#F5CB62]" />
+                <span>VENUE BLUEPRINT &amp; LAYOUT</span>
+              </div>
 
-            {/* Floating "View Full Map" Pill Badge */}
-            <div className="absolute top-4 right-4 z-20">
+              {/* Direction Button */}
               <a
-                href={activeVenue.googleMapsUrl}
+                href={activeVenue.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 hover:bg-white text-[#063522] text-xs font-semibold tracking-wider uppercase shadow-md hover:shadow-lg backdrop-blur-md transition-all duration-300 border border-[#063522]/10 group"
+                className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5CB62] hover:bg-[#e4b94f] text-[#063522] text-xs font-bold tracking-wider uppercase shadow-lg hover:shadow-xl transition-all duration-300 border border-[#063522]/10 group/dir active:scale-95"
               >
-                <span>VIEW FULL MAP</span>
-                <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#8C733E]" />
+                <Navigation className="w-3.5 h-3.5 transition-transform duration-300 group-hover/dir:-translate-y-0.5" />
+                <span>GET DIRECTIONS</span>
               </a>
             </div>
 
-            {/* Bottom Floating Info Pill: Transport & Plus Code */}
-            <div className="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
-              <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 sm:p-3.5 shadow-md border border-[#063522]/10 flex flex-wrap items-center justify-between gap-2 text-xs font-sans text-[#233F33]">
-                <div className="flex items-center gap-2 pointer-events-auto">
-                  <span className="font-semibold text-[#063522]">
-                    Plus Code:
-                  </span>
-                  <span className="font-mono bg-[#063522]/5 px-2 py-0.5 rounded text-[#063522]">
-                    {activeVenue.plusCode}
-                  </span>
-                </div>
+            {/* High-Resolution Venue Blueprint Graphic */}
+            <div
+              onClick={() => setIsBlueprintModalOpen(true)}
+              className="relative w-full flex-1 min-h-[380px] sm:min-h-[440px] lg:min-h-[500px] flex items-center justify-center p-3 sm:p-5 cursor-pointer"
+              title="Click to view full-size venue blueprint"
+            >
+              <Image
+                src="/images/venue/venueblue print.png"
+                alt="Bharat Nivas Conclave Venue Blueprint and Zone Layout"
+                fill
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-contain p-2 sm:p-4 transition-transform duration-500 group-hover:scale-[1.02]"
+                priority
+              />
+
+              {/* Bottom Overlay Hint: Enlarge Blueprint */}
+              <div className="absolute bottom-4 right-4 z-20 pointer-events-auto">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsBlueprintModalOpen(true);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[11px] font-medium tracking-wide shadow-md transition-all border border-white/20 cursor-pointer"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-[#F5CB62]" />
+                  <span>Enlarge Blueprint</span>
+                </button>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* ========================================================
+          3. FULL-SIZE BLUEPRINT MODAL LIGHTBOX
+          ======================================================== */}
+      {isBlueprintModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col p-4 sm:p-6 overflow-hidden animate-in fade-in duration-200"
+          onClick={() => setIsBlueprintModalOpen(false)}
+        >
+          {/* Modal Header */}
+          <div className="flex items-center justify-between gap-4 pb-4 border-b border-white/10 shrink-0">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#F5CB62] font-semibold">
+                Bharat Nivas Venue Blueprint &amp; Zones
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href={activeVenue.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F5CB62] hover:bg-[#e4b94f] text-[#063522] text-xs font-bold tracking-wider uppercase shadow-md transition-all"
+              >
+                <Navigation className="w-3.5 h-3.5" />
+                <span>Get Directions</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setIsBlueprintModalOpen(false)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Modal Body: Full Image Display */}
+          <div
+            className="relative flex-1 w-full h-full flex items-center justify-center p-2 sm:p-4 overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full max-w-6xl max-h-[85vh]">
+              <Image
+                src="/images/venue/venueblue print.png"
+                alt="Full-size Venue Blueprint"
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

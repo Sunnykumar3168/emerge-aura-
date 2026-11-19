@@ -89,7 +89,7 @@ export const organizersData: OrganizerItem[] = [
     id: "ynos",
     number: "08",
     name: "YNOS",
-    logo: "/organizerslogos/ynos.png",
+    logo: "/organizerslogos/ynos-logo.png",
     logoAlt: "YNOS Logo",
     url: "https://www.ynos.in/",
     buttonText: "Visit Website",

@@ -43,9 +43,9 @@ export const venuesData: VenueItem[] = [
     mapEmbedUrl:
       "https://maps.google.com/maps?q=India+Nivas,+Auroville,+Tamil+Nadu+605101&t=&z=15&ie=UTF8&iwloc=&output=embed",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=India+Nivas+Auroville+Tamil+Nadu+605101",
+      "https://www.google.com/maps/search/?api=1&query=Bharat+Nivas+Auroville+Tamil+Nadu+605101",
     directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=India+Nivas+Auroville+Tamil+Nadu+605101",
+      "https://www.google.com/maps/dir/?api=1&destination=Bharat+Nivas,+Auroville,+Tamil+Nadu+605101",
   },
   {
     id: "pondicherry-university",

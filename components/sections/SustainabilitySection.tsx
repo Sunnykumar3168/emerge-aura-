@@ -87,7 +87,7 @@ export default function SustainabilitySection() {
     <section
       id="sustainability"
       aria-label="Sustainability at EMERGE AURO"
-      className="relative w-full bg-[#F7F2E8] text-[#17352B] py-20 sm:py-28 lg:py-36 overflow-hidden select-none"
+      className="relative w-full bg-[#F7F2E8] text-[#17352B] pt-8 sm:pt-12 pb-20 sm:pb-28 lg:pb-36 overflow-hidden select-none"
     >
       {/* Decorative subtle ambient lights */}
       <div

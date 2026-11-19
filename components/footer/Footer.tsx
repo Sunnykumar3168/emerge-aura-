@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#agenda"
+                  href="/agenda"
                   className="text-[#073B2A]/75 hover:text-[#C89B3C] transition-colors duration-200"
                 >
                   Schedule & Agenda

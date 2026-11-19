@@ -28,13 +28,13 @@ const organizers = [
     image: "/organizers/aravind.png", 
     gradient: "from-[#00B894] to-[#7DFF70]" 
   },
-  { 
-    name: "Vishwanathan", 
-    role: "FWC", 
-    org: "", 
-    image: "/organizers/vishwnathan.png", 
-    gradient: "from-[#3157F5] to-[#6558FF]" 
-  },
+  // { 
+  //   name: "Vishwanathan", 
+  //   role: "FWC", 
+  //   org: "", 
+  //   image: "/organizers/vishwnathan.png", 
+  //   gradient: "from-[#3157F5] to-[#6558FF]" 
+  // },
   // { 
   //   name: "Ashok Reddy", 
   //   role: "FWC", 

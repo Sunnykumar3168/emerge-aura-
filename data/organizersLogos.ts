@@ -46,7 +46,7 @@ export const organizerLogos: OrganizerLogo[] = [
     name: "Village Technology School",
   },
   {
-    src: "/organizerslogos/ynos.png",
+    src: "/organizerslogos/ynos-logo.png",
     alt: "YNOS",
     name: "YNOS",
   },

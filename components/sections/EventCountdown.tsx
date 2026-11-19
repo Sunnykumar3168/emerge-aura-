@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { Sparkles, CheckCircle2, XCircle } from "lucide-react";
 
@@ -124,54 +123,7 @@ export default function EventCountdown() {
           >
             Bharat&apos;s first Conscious Capital Conclave is almost here. Be part of
             it — don&apos;t miss your chance.
-          </motion.p> 
-
-          {/* Dress Code Guidelines Section - Conscious by Choice */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-            className="w-full max-w-5xl mx-auto mt-10 sm:mt-14 rounded-2xl sm:rounded-3xl bg-white/85 border border-[#C59B4E]/30 overflow-hidden flex flex-col text-center"
-          >
-            {/* Top Banner: Image (Retains exact 1000x332 ratio across all screens) */}
-            <div className="w-full bg-[#EAE3D2] flex justify-center">
-              <Image
-                src="/images/indian_attire.jpeg"
-                alt="Conscious Fashion - Indian Traditional Attire"
-                width={1000}
-                height={332}
-                className="w-full max-w-[1000px] h-auto object-contain"
-              />
-            </div>
-
-            {/* Bottom Section: Content */}
-            <div className="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
-              <div>
-
-                {/* Headline */}
-                <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-normal text-[#112019] tracking-tight mb-4">
-                  Conscious by Choice
-                </h3>
-
-                {/* Narrative Lines */}
-                <div className="space-y-2 text-[#26352D] font-sans text-sm sm:text-[15px] leading-relaxed mb-6">
-                  <p className="font-medium text-[#112019]">
-                    Every choice we make shapes the world we leave behind.
-                  </p>
-                  <p>
-                    This EMERGE AURO, embrace conscious fashion and sustainable choices.
-                  </p>
-                  <p>
-                    Choose natural fabrics, handlooms, upcycled creations and mindful wardrobes.
-                  </p>
-                  <p className="italic text-[#8C733E] font-medium pt-1">
-                    Because conscious capitalism begins with conscious choices.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          </motion.p>
         </motion.div>
       </div>
     </section>

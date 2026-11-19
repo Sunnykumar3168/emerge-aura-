@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   motion,
   useAnimationFrame,
@@ -9,7 +10,7 @@ import {
   animate,
   useTransform,
 } from "motion/react";
-import { Users, Lightbulb, Globe, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Users, Lightbulb, Globe, ChevronLeft, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
 import { speakers, Speaker } from "@/data/speaker";
 
 export default function SpeakersSection() {
@@ -24,7 +25,7 @@ export default function SpeakersSection() {
   const itemWidth = cardWidth + gap;
   const totalItems = speakers.length;
   const contentWidth = itemWidth * totalItems;
-  const speed = 36; // px per second
+  const speed = 42; // px per second (smoothly increased from 36px/s for a slightly faster continuous flow)
 
   // Repeat speakers 3 times for a completely seamless loop without edge clipping
   const duplicatedSpeakers = [...speakers, ...speakers, ...speakers];
@@ -122,14 +123,22 @@ export default function SpeakersSection() {
             </p>
           </motion.div>
 
-          {/* Right Pillar Badges & Controls */}
+          {/* Right Controls: View All Button & Slider Controls */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6"
+            className="flex flex-wrap items-center gap-3 sm:gap-4"
           >
+            {/* View All Speakers Button */}
+            <Link
+              href="/speakers"
+              className="group inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-[#073B2A] text-[#FAF8F2] hover:bg-[#042017] border border-[#C9A15B]/50 hover:border-[#C9A15B] font-sans text-xs sm:text-[13px] font-semibold tracking-wider uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(7,59,42,0.18)] hover:shadow-[0_8px_24px_rgba(7,59,42,0.28)] hover:-translate-y-0.5 active:scale-95"
+            >
+              <span>View All Speakers</span>
+              <ArrowRight className="w-4 h-4 text-[#C9A15B] transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
 
             {/* Slider Controls */}
             <div className="flex items-center gap-2.5">
@@ -195,28 +204,36 @@ export default function SpeakersSection() {
                 </div>
 
                 {/* Bottom Speaker Details */}
-                <div className="relative z-10 flex-1 p-5 flex flex-col justify-between bg-white">
-                  <div>
-                    {/* Speaker Name */}
-                    <h3 className="font-editorial text-[20px] sm:text-[21px] font-semibold text-[#10251D] group-hover:text-[#8C6D34] transition-colors duration-300 leading-snug line-clamp-1 mb-2">
-                      {spk.name}
-                    </h3>
+                <div className="relative z-10 flex-1 p-5 flex flex-col justify-start bg-white">
+                  {/* Speaker Name */}
+                  <h3 className="font-editorial text-[20px] sm:text-[21px] font-semibold text-[#10251D] group-hover:text-[#8C6D34] transition-colors duration-300 leading-snug line-clamp-1 mb-2">
+                    {spk.name}
+                  </h3>
 
-                    {/* Speaker Designation */}
-                    <p className="font-sans text-[12.5px] sm:text-[13px] text-[#42544A] leading-[1.45] font-normal line-clamp-3">
-                      {spk.designation}
-                    </p>
-                  </div>
-
-                  {/* Bottom Accent Line */}
-                  <div className="pt-3 border-t border-[#10251D]/6 flex items-center justify-between text-[11px] font-sans text-[#8C6D34] font-medium">
-                    <span className="tracking-wider uppercase">EMERGE AURO 2026</span>
-                  </div>
+                  {/* Speaker Designation */}
+                  <p className="font-sans text-[12.5px] sm:text-[13px] text-[#42544A] leading-[1.45] font-normal line-clamp-3">
+                    {spk.designation}
+                  </p>
                 </div>
               </div>
             );
           })}
         </motion.div>
+      </div>
+
+      {/* Bottom Hint & View All Link */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-[#5A6D61]">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#C9A15B] animate-pulse" />
+          <span>Hover or touch to pause continuous scroll</span>
+        </div>
+        <Link
+          href="/speakers"
+          className="group inline-flex items-center gap-1.5 text-[#8C6D34] hover:text-[#073B2A] font-semibold transition-colors duration-200"
+        >
+          <span>Explore all {speakers.length} speakers in the directory</span>
+          <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+        </Link>
       </div>
     </section>
   );
